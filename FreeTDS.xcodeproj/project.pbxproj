@@ -10,6 +10,96 @@
 		6521F183144E6B1500CBCC36 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6521F182144E6B1500CBCC36 /* Cocoa.framework */; };
 		6521F18D144E6B1500CBCC36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6521F18B144E6B1500CBCC36 /* InfoPlist.strings */; };
 		6521F191144E6B1500CBCC36 /* FreeTDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 6521F190144E6B1500CBCC36 /* FreeTDS.m */; };
+		6521F1BB144E6CC100CBCC36 /* bulk.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F198144E6CC100CBCC36 /* bulk.c */; };
+		6521F1BC144E6CC100CBCC36 /* challenge.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F199144E6CC100CBCC36 /* challenge.c */; };
+		6521F1BD144E6CC100CBCC36 /* config.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F19A144E6CC100CBCC36 /* config.c */; };
+		6521F1BE144E6CC100CBCC36 /* convert.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F19B144E6CC100CBCC36 /* convert.c */; };
+		6521F1BF144E6CC100CBCC36 /* data.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F19C144E6CC100CBCC36 /* data.c */; };
+		6521F1C0144E6CC100CBCC36 /* des.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F19D144E6CC100CBCC36 /* des.c */; };
+		6521F1C1144E6CC100CBCC36 /* encodings.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F19E144E6CC100CBCC36 /* encodings.h */; };
+		6521F1C2144E6CC100CBCC36 /* enum_cap.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F19F144E6CC100CBCC36 /* enum_cap.h */; };
+		6521F1C3144E6CC100CBCC36 /* getmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A0144E6CC100CBCC36 /* getmac.c */; };
+		6521F1C4144E6CC100CBCC36 /* gssapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A1144E6CC100CBCC36 /* gssapi.c */; };
+		6521F1C5144E6CC100CBCC36 /* hmac_md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A2144E6CC100CBCC36 /* hmac_md5.c */; };
+		6521F1C6144E6CC100CBCC36 /* iconv.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A3144E6CC100CBCC36 /* iconv.c */; };
+		6521F1C7144E6CC100CBCC36 /* locale.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A4144E6CC100CBCC36 /* locale.c */; };
+		6521F1C8144E6CC100CBCC36 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A5144E6CC100CBCC36 /* log.c */; };
+		6521F1C9144E6CC100CBCC36 /* login.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A6144E6CC100CBCC36 /* login.c */; };
+		6521F1CA144E6CC100CBCC36 /* md4.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A7144E6CC100CBCC36 /* md4.c */; };
+		6521F1CB144E6CC100CBCC36 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A8144E6CC100CBCC36 /* md5.c */; };
+		6521F1CC144E6CC100CBCC36 /* mem.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1A9144E6CC100CBCC36 /* mem.c */; };
+		6521F1CD144E6CC100CBCC36 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1AA144E6CC100CBCC36 /* net.c */; };
+		6521F1CE144E6CC100CBCC36 /* num_limits.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F1AB144E6CC100CBCC36 /* num_limits.h */; };
+		6521F1CF144E6CC100CBCC36 /* numeric.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1AC144E6CC100CBCC36 /* numeric.c */; };
+		6521F1D1144E6CC100CBCC36 /* query.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1AE144E6CC100CBCC36 /* query.c */; };
+		6521F1D2144E6CC100CBCC36 /* read.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1AF144E6CC100CBCC36 /* read.c */; };
+		6521F1D3144E6CC100CBCC36 /* sspi.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1B0144E6CC100CBCC36 /* sspi.c */; };
+		6521F1D4144E6CC100CBCC36 /* tds_checks.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1B1144E6CC100CBCC36 /* tds_checks.c */; };
+		6521F1D5144E6CC100CBCC36 /* tds_checks.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F1B2144E6CC100CBCC36 /* tds_checks.h */; };
+		6521F1D6144E6CC100CBCC36 /* tds_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F1B3144E6CC100CBCC36 /* tds_types.h */; };
+		6521F1D7144E6CC100CBCC36 /* tds_willconvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F1B4144E6CC100CBCC36 /* tds_willconvert.h */; };
+		6521F1D8144E6CC100CBCC36 /* tdsstring.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1B5144E6CC100CBCC36 /* tdsstring.c */; };
+		6521F1D9144E6CC100CBCC36 /* threadsafe.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1B6144E6CC100CBCC36 /* threadsafe.c */; };
+		6521F1DA144E6CC100CBCC36 /* token.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1B7144E6CC100CBCC36 /* token.c */; };
+		6521F1DB144E6CC100CBCC36 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1B8144E6CC100CBCC36 /* util.c */; };
+		6521F1DC144E6CC100CBCC36 /* vstrbuild.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1B9144E6CC100CBCC36 /* vstrbuild.c */; };
+		6521F1DD144E6CC100CBCC36 /* write.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1BA144E6CC100CBCC36 /* write.c */; };
+		6521F1EC144E6D0400CBCC36 /* asprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E0144E6D0400CBCC36 /* asprintf.c */; };
+		6521F1ED144E6D0400CBCC36 /* atoll.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E1144E6D0400CBCC36 /* atoll.c */; };
+		6521F1EE144E6D0400CBCC36 /* basename.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E2144E6D0400CBCC36 /* basename.c */; };
+		6521F1EF144E6D0400CBCC36 /* fakepoll.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E3144E6D0400CBCC36 /* fakepoll.c */; };
+		6521F1F0144E6D0400CBCC36 /* getopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E4144E6D0400CBCC36 /* getopt.c */; };
+		6521F1F1144E6D0400CBCC36 /* gettimeofday.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E5144E6D0400CBCC36 /* gettimeofday.c */; };
+		6521F1F2144E6D0400CBCC36 /* iconv.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E6144E6D0400CBCC36 /* iconv.c */; };
+		6521F1F3144E6D0400CBCC36 /* readpassphrase.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E7144E6D0400CBCC36 /* readpassphrase.c */; };
+		6521F1F4144E6D0400CBCC36 /* strlcat.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E8144E6D0400CBCC36 /* strlcat.c */; };
+		6521F1F5144E6D0400CBCC36 /* strlcpy.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E9144E6D0400CBCC36 /* strlcpy.c */; };
+		6521F1F6144E6D0400CBCC36 /* strtok_r.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1EA144E6D0400CBCC36 /* strtok_r.c */; };
+		6521F1F7144E6D0400CBCC36 /* vasprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1EB144E6D0400CBCC36 /* vasprintf.c */; };
+		6521F200144E6D2600CBCC36 /* bcp.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1F9144E6D2600CBCC36 /* bcp.c */; };
+		6521F201144E6D2600CBCC36 /* buffering.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F1FA144E6D2600CBCC36 /* buffering.h */; };
+		6521F202144E6D2600CBCC36 /* dblib.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1FB144E6D2600CBCC36 /* dblib.c */; };
+		6521F203144E6D2600CBCC36 /* dbopen.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1FC144E6D2600CBCC36 /* dbopen.c */; };
+		6521F204144E6D2600CBCC36 /* dbutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1FD144E6D2600CBCC36 /* dbutil.c */; };
+		6521F205144E6D2600CBCC36 /* rpc.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1FE144E6D2600CBCC36 /* rpc.c */; };
+		6521F206144E6D2600CBCC36 /* xact.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1FF144E6D2600CBCC36 /* xact.c */; };
+		6521F20C144E6D5F00CBCC36 /* blk.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F208144E6D5F00CBCC36 /* blk.c */; };
+		6521F20D144E6D5F00CBCC36 /* cs.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F209144E6D5F00CBCC36 /* cs.c */; };
+		6521F20E144E6D5F00CBCC36 /* ct.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F20A144E6D5F00CBCC36 /* ct.c */; };
+		6521F20F144E6D5F00CBCC36 /* ctutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F20B144E6D5F00CBCC36 /* ctutil.c */; };
+		6521F230144E6D8D00CBCC36 /* bkpublic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F211144E6D8D00CBCC36 /* bkpublic.h */; };
+		6521F232144E6D8D00CBCC36 /* cspublic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F213144E6D8D00CBCC36 /* cspublic.h */; };
+		6521F233144E6D8D00CBCC36 /* cstypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F214144E6D8D00CBCC36 /* cstypes.h */; };
+		6521F234144E6D8D00CBCC36 /* ctlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F215144E6D8D00CBCC36 /* ctlib.h */; };
+		6521F235144E6D8D00CBCC36 /* ctpublic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F216144E6D8D00CBCC36 /* ctpublic.h */; };
+		6521F236144E6D8D00CBCC36 /* dblib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F217144E6D8D00CBCC36 /* dblib.h */; };
+		6521F237144E6D8D00CBCC36 /* des.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F218144E6D8D00CBCC36 /* des.h */; };
+		6521F238144E6D8D00CBCC36 /* fakepoll.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F219144E6D8D00CBCC36 /* fakepoll.h */; };
+		6521F239144E6D8D00CBCC36 /* hmac_md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21A144E6D8D00CBCC36 /* hmac_md5.h */; };
+		6521F23A144E6D8D00CBCC36 /* md4.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21B144E6D8D00CBCC36 /* md4.h */; };
+		6521F23B144E6D8D00CBCC36 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21C144E6D8D00CBCC36 /* md5.h */; };
+		6521F23C144E6D8D00CBCC36 /* odbcss.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21D144E6D8D00CBCC36 /* odbcss.h */; };
+		6521F23D144E6D8D00CBCC36 /* replacements.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21E144E6D8D00CBCC36 /* replacements.h */; };
+		6521F23E144E6D8D00CBCC36 /* sqldb.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21F144E6D8D00CBCC36 /* sqldb.h */; };
+		6521F23F144E6D8D00CBCC36 /* sqlfront.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F220144E6D8D00CBCC36 /* sqlfront.h */; };
+		6521F240144E6D8D00CBCC36 /* sybdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F221144E6D8D00CBCC36 /* sybdb.h */; };
+		6521F241144E6D8D00CBCC36 /* syberror.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F222144E6D8D00CBCC36 /* syberror.h */; };
+		6521F242144E6D8D00CBCC36 /* sybfront.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F223144E6D8D00CBCC36 /* sybfront.h */; };
+		6521F243144E6D8D00CBCC36 /* tds_configs.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F224144E6D8D00CBCC36 /* tds_configs.h */; };
+		6521F244144E6D8D00CBCC36 /* tds_sysdep_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F225144E6D8D00CBCC36 /* tds_sysdep_private.h */; };
+		6521F245144E6D8D00CBCC36 /* tds.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F226144E6D8D00CBCC36 /* tds.h */; };
+		6521F246144E6D8D00CBCC36 /* tdsbytes.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F227144E6D8D00CBCC36 /* tdsbytes.h */; };
+		6521F247144E6D8D00CBCC36 /* tdsconvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F228144E6D8D00CBCC36 /* tdsconvert.h */; };
+		6521F248144E6D8D00CBCC36 /* tdsiconv.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F229144E6D8D00CBCC36 /* tdsiconv.h */; };
+		6521F249144E6D8D00CBCC36 /* tdsodbc.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F22A144E6D8D00CBCC36 /* tdsodbc.h */; };
+		6521F24A144E6D8D00CBCC36 /* tdssrv.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F22B144E6D8D00CBCC36 /* tdssrv.h */; };
+		6521F24B144E6D8D00CBCC36 /* tdsstring.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F22C144E6D8D00CBCC36 /* tdsstring.h */; };
+		6521F24C144E6D8D00CBCC36 /* tdsthread.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F22D144E6D8D00CBCC36 /* tdsthread.h */; };
+		6521F24D144E6D8D00CBCC36 /* tdsver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F22E144E6D8D00CBCC36 /* tdsver.h */; };
+		6521F24E144E6D8D00CBCC36 /* tdsver.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 6521F22F144E6D8D00CBCC36 /* tdsver.h.in */; };
+		6521F251144E6DAB00CBCC36 /* readpassphrase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F250144E6DAB00CBCC36 /* readpassphrase.h */; };
+		6521F254144E6E1100CBCC36 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F252144E6E1100CBCC36 /* config.h */; };
+		6521F255144E6E1100CBCC36 /* tds_sysdep_public.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F253144E6E1100CBCC36 /* tds_sysdep_public.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +113,96 @@
 		6521F18E144E6B1500CBCC36 /* FreeTDS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FreeTDS-Prefix.pch"; sourceTree = "<group>"; };
 		6521F18F144E6B1500CBCC36 /* FreeTDS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreeTDS.h; sourceTree = "<group>"; };
 		6521F190144E6B1500CBCC36 /* FreeTDS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreeTDS.m; sourceTree = "<group>"; };
+		6521F198144E6CC100CBCC36 /* bulk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bulk.c; path = src/freetds/src/tds/bulk.c; sourceTree = "<group>"; };
+		6521F199144E6CC100CBCC36 /* challenge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = challenge.c; path = src/freetds/src/tds/challenge.c; sourceTree = "<group>"; };
+		6521F19A144E6CC100CBCC36 /* config.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = config.c; path = src/freetds/src/tds/config.c; sourceTree = "<group>"; };
+		6521F19B144E6CC100CBCC36 /* convert.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = convert.c; path = src/freetds/src/tds/convert.c; sourceTree = "<group>"; };
+		6521F19C144E6CC100CBCC36 /* data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = data.c; path = src/freetds/src/tds/data.c; sourceTree = "<group>"; };
+		6521F19D144E6CC100CBCC36 /* des.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = des.c; path = src/freetds/src/tds/des.c; sourceTree = "<group>"; };
+		6521F19E144E6CC100CBCC36 /* encodings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = encodings.h; path = src/freetds/src/tds/encodings.h; sourceTree = "<group>"; };
+		6521F19F144E6CC100CBCC36 /* enum_cap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = enum_cap.h; path = src/freetds/src/tds/enum_cap.h; sourceTree = "<group>"; };
+		6521F1A0144E6CC100CBCC36 /* getmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = getmac.c; path = src/freetds/src/tds/getmac.c; sourceTree = "<group>"; };
+		6521F1A1144E6CC100CBCC36 /* gssapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gssapi.c; path = src/freetds/src/tds/gssapi.c; sourceTree = "<group>"; };
+		6521F1A2144E6CC100CBCC36 /* hmac_md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hmac_md5.c; path = src/freetds/src/tds/hmac_md5.c; sourceTree = "<group>"; };
+		6521F1A3144E6CC100CBCC36 /* iconv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = iconv.c; path = src/freetds/src/tds/iconv.c; sourceTree = "<group>"; };
+		6521F1A4144E6CC100CBCC36 /* locale.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = locale.c; path = src/freetds/src/tds/locale.c; sourceTree = "<group>"; };
+		6521F1A5144E6CC100CBCC36 /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = log.c; path = src/freetds/src/tds/log.c; sourceTree = "<group>"; };
+		6521F1A6144E6CC100CBCC36 /* login.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = login.c; path = src/freetds/src/tds/login.c; sourceTree = "<group>"; };
+		6521F1A7144E6CC100CBCC36 /* md4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = md4.c; path = src/freetds/src/tds/md4.c; sourceTree = "<group>"; };
+		6521F1A8144E6CC100CBCC36 /* md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = md5.c; path = src/freetds/src/tds/md5.c; sourceTree = "<group>"; };
+		6521F1A9144E6CC100CBCC36 /* mem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mem.c; path = src/freetds/src/tds/mem.c; sourceTree = "<group>"; };
+		6521F1AA144E6CC100CBCC36 /* net.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = net.c; path = src/freetds/src/tds/net.c; sourceTree = "<group>"; };
+		6521F1AB144E6CC100CBCC36 /* num_limits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = num_limits.h; path = src/freetds/src/tds/num_limits.h; sourceTree = "<group>"; };
+		6521F1AC144E6CC100CBCC36 /* numeric.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = numeric.c; path = src/freetds/src/tds/numeric.c; sourceTree = "<group>"; };
+		6521F1AE144E6CC100CBCC36 /* query.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = query.c; path = src/freetds/src/tds/query.c; sourceTree = "<group>"; };
+		6521F1AF144E6CC100CBCC36 /* read.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = read.c; path = src/freetds/src/tds/read.c; sourceTree = "<group>"; };
+		6521F1B0144E6CC100CBCC36 /* sspi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sspi.c; path = src/freetds/src/tds/sspi.c; sourceTree = "<group>"; };
+		6521F1B1144E6CC100CBCC36 /* tds_checks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tds_checks.c; path = src/freetds/src/tds/tds_checks.c; sourceTree = "<group>"; };
+		6521F1B2144E6CC100CBCC36 /* tds_checks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tds_checks.h; path = src/freetds/src/tds/tds_checks.h; sourceTree = "<group>"; };
+		6521F1B3144E6CC100CBCC36 /* tds_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tds_types.h; path = src/freetds/src/tds/tds_types.h; sourceTree = "<group>"; };
+		6521F1B4144E6CC100CBCC36 /* tds_willconvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tds_willconvert.h; path = src/freetds/src/tds/tds_willconvert.h; sourceTree = "<group>"; };
+		6521F1B5144E6CC100CBCC36 /* tdsstring.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tdsstring.c; path = src/freetds/src/tds/tdsstring.c; sourceTree = "<group>"; };
+		6521F1B6144E6CC100CBCC36 /* threadsafe.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = threadsafe.c; path = src/freetds/src/tds/threadsafe.c; sourceTree = "<group>"; };
+		6521F1B7144E6CC100CBCC36 /* token.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = token.c; path = src/freetds/src/tds/token.c; sourceTree = "<group>"; };
+		6521F1B8144E6CC100CBCC36 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = src/freetds/src/tds/util.c; sourceTree = "<group>"; };
+		6521F1B9144E6CC100CBCC36 /* vstrbuild.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vstrbuild.c; path = src/freetds/src/tds/vstrbuild.c; sourceTree = "<group>"; };
+		6521F1BA144E6CC100CBCC36 /* write.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = write.c; path = src/freetds/src/tds/write.c; sourceTree = "<group>"; };
+		6521F1E0144E6D0400CBCC36 /* asprintf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = asprintf.c; path = src/freetds/src/replacements/asprintf.c; sourceTree = "<group>"; };
+		6521F1E1144E6D0400CBCC36 /* atoll.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = atoll.c; path = src/freetds/src/replacements/atoll.c; sourceTree = "<group>"; };
+		6521F1E2144E6D0400CBCC36 /* basename.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = basename.c; path = src/freetds/src/replacements/basename.c; sourceTree = "<group>"; };
+		6521F1E3144E6D0400CBCC36 /* fakepoll.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fakepoll.c; path = src/freetds/src/replacements/fakepoll.c; sourceTree = "<group>"; };
+		6521F1E4144E6D0400CBCC36 /* getopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = getopt.c; path = src/freetds/src/replacements/getopt.c; sourceTree = "<group>"; };
+		6521F1E5144E6D0400CBCC36 /* gettimeofday.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gettimeofday.c; path = src/freetds/src/replacements/gettimeofday.c; sourceTree = "<group>"; };
+		6521F1E6144E6D0400CBCC36 /* iconv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = iconv.c; path = src/freetds/src/replacements/iconv.c; sourceTree = "<group>"; };
+		6521F1E7144E6D0400CBCC36 /* readpassphrase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = readpassphrase.c; path = src/freetds/src/replacements/readpassphrase.c; sourceTree = "<group>"; };
+		6521F1E8144E6D0400CBCC36 /* strlcat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = strlcat.c; path = src/freetds/src/replacements/strlcat.c; sourceTree = "<group>"; };
+		6521F1E9144E6D0400CBCC36 /* strlcpy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = strlcpy.c; path = src/freetds/src/replacements/strlcpy.c; sourceTree = "<group>"; };
+		6521F1EA144E6D0400CBCC36 /* strtok_r.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = strtok_r.c; path = src/freetds/src/replacements/strtok_r.c; sourceTree = "<group>"; };
+		6521F1EB144E6D0400CBCC36 /* vasprintf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vasprintf.c; path = src/freetds/src/replacements/vasprintf.c; sourceTree = "<group>"; };
+		6521F1F9144E6D2600CBCC36 /* bcp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bcp.c; path = src/freetds/src/dblib/bcp.c; sourceTree = "<group>"; };
+		6521F1FA144E6D2600CBCC36 /* buffering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = buffering.h; path = src/freetds/src/dblib/buffering.h; sourceTree = "<group>"; };
+		6521F1FB144E6D2600CBCC36 /* dblib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dblib.c; path = src/freetds/src/dblib/dblib.c; sourceTree = "<group>"; };
+		6521F1FC144E6D2600CBCC36 /* dbopen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dbopen.c; path = src/freetds/src/dblib/dbopen.c; sourceTree = "<group>"; };
+		6521F1FD144E6D2600CBCC36 /* dbutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dbutil.c; path = src/freetds/src/dblib/dbutil.c; sourceTree = "<group>"; };
+		6521F1FE144E6D2600CBCC36 /* rpc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rpc.c; path = src/freetds/src/dblib/rpc.c; sourceTree = "<group>"; };
+		6521F1FF144E6D2600CBCC36 /* xact.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = xact.c; path = src/freetds/src/dblib/xact.c; sourceTree = "<group>"; };
+		6521F208144E6D5F00CBCC36 /* blk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = blk.c; path = src/freetds/src/ctlib/blk.c; sourceTree = "<group>"; };
+		6521F209144E6D5F00CBCC36 /* cs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cs.c; path = src/freetds/src/ctlib/cs.c; sourceTree = "<group>"; };
+		6521F20A144E6D5F00CBCC36 /* ct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ct.c; path = src/freetds/src/ctlib/ct.c; sourceTree = "<group>"; };
+		6521F20B144E6D5F00CBCC36 /* ctutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ctutil.c; path = src/freetds/src/ctlib/ctutil.c; sourceTree = "<group>"; };
+		6521F211144E6D8D00CBCC36 /* bkpublic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bkpublic.h; path = src/freetds/include/bkpublic.h; sourceTree = "<group>"; };
+		6521F213144E6D8D00CBCC36 /* cspublic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cspublic.h; path = src/freetds/include/cspublic.h; sourceTree = "<group>"; };
+		6521F214144E6D8D00CBCC36 /* cstypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cstypes.h; path = src/freetds/include/cstypes.h; sourceTree = "<group>"; };
+		6521F215144E6D8D00CBCC36 /* ctlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctlib.h; path = src/freetds/include/ctlib.h; sourceTree = "<group>"; };
+		6521F216144E6D8D00CBCC36 /* ctpublic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ctpublic.h; path = src/freetds/include/ctpublic.h; sourceTree = "<group>"; };
+		6521F217144E6D8D00CBCC36 /* dblib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dblib.h; path = src/freetds/include/dblib.h; sourceTree = "<group>"; };
+		6521F218144E6D8D00CBCC36 /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = des.h; path = src/freetds/include/des.h; sourceTree = "<group>"; };
+		6521F219144E6D8D00CBCC36 /* fakepoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fakepoll.h; path = src/freetds/include/fakepoll.h; sourceTree = "<group>"; };
+		6521F21A144E6D8D00CBCC36 /* hmac_md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hmac_md5.h; path = src/freetds/include/hmac_md5.h; sourceTree = "<group>"; };
+		6521F21B144E6D8D00CBCC36 /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = md4.h; path = src/freetds/include/md4.h; sourceTree = "<group>"; };
+		6521F21C144E6D8D00CBCC36 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = md5.h; path = src/freetds/include/md5.h; sourceTree = "<group>"; };
+		6521F21D144E6D8D00CBCC36 /* odbcss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = odbcss.h; path = src/freetds/include/odbcss.h; sourceTree = "<group>"; };
+		6521F21E144E6D8D00CBCC36 /* replacements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = replacements.h; path = src/freetds/include/replacements.h; sourceTree = "<group>"; };
+		6521F21F144E6D8D00CBCC36 /* sqldb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sqldb.h; path = src/freetds/include/sqldb.h; sourceTree = "<group>"; };
+		6521F220144E6D8D00CBCC36 /* sqlfront.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sqlfront.h; path = src/freetds/include/sqlfront.h; sourceTree = "<group>"; };
+		6521F221144E6D8D00CBCC36 /* sybdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sybdb.h; path = src/freetds/include/sybdb.h; sourceTree = "<group>"; };
+		6521F222144E6D8D00CBCC36 /* syberror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = syberror.h; path = src/freetds/include/syberror.h; sourceTree = "<group>"; };
+		6521F223144E6D8D00CBCC36 /* sybfront.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sybfront.h; path = src/freetds/include/sybfront.h; sourceTree = "<group>"; };
+		6521F224144E6D8D00CBCC36 /* tds_configs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tds_configs.h; path = src/freetds/include/tds_configs.h; sourceTree = "<group>"; };
+		6521F225144E6D8D00CBCC36 /* tds_sysdep_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tds_sysdep_private.h; path = src/freetds/include/tds_sysdep_private.h; sourceTree = "<group>"; };
+		6521F226144E6D8D00CBCC36 /* tds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tds.h; path = src/freetds/include/tds.h; sourceTree = "<group>"; };
+		6521F227144E6D8D00CBCC36 /* tdsbytes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tdsbytes.h; path = src/freetds/include/tdsbytes.h; sourceTree = "<group>"; };
+		6521F228144E6D8D00CBCC36 /* tdsconvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tdsconvert.h; path = src/freetds/include/tdsconvert.h; sourceTree = "<group>"; };
+		6521F229144E6D8D00CBCC36 /* tdsiconv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tdsiconv.h; path = src/freetds/include/tdsiconv.h; sourceTree = "<group>"; };
+		6521F22A144E6D8D00CBCC36 /* tdsodbc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tdsodbc.h; path = src/freetds/include/tdsodbc.h; sourceTree = "<group>"; };
+		6521F22B144E6D8D00CBCC36 /* tdssrv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tdssrv.h; path = src/freetds/include/tdssrv.h; sourceTree = "<group>"; };
+		6521F22C144E6D8D00CBCC36 /* tdsstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tdsstring.h; path = src/freetds/include/tdsstring.h; sourceTree = "<group>"; };
+		6521F22D144E6D8D00CBCC36 /* tdsthread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tdsthread.h; path = src/freetds/include/tdsthread.h; sourceTree = "<group>"; };
+		6521F22E144E6D8D00CBCC36 /* tdsver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tdsver.h; path = src/freetds/include/tdsver.h; sourceTree = "<group>"; };
+		6521F22F144E6D8D00CBCC36 /* tdsver.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = tdsver.h.in; path = src/freetds/include/tdsver.h.in; sourceTree = "<group>"; };
+		6521F250144E6DAB00CBCC36 /* readpassphrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = readpassphrase.h; path = src/freetds/include/replacements/readpassphrase.h; sourceTree = "<group>"; };
+		6521F252144E6E1100CBCC36 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = src/freetds/include/config.h; sourceTree = "<group>"; };
+		6521F253144E6E1100CBCC36 /* tds_sysdep_public.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tds_sysdep_public.h; path = src/freetds/include/tds_sysdep_public.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +220,7 @@
 		6521F173144E6B1500CBCC36 = {
 			isa = PBXGroup;
 			children = (
+				6521F197144E6C3100CBCC36 /* Library Source */,
 				6521F188144E6B1500CBCC36 /* FreeTDS */,
 				6521F181144E6B1500CBCC36 /* Frameworks */,
 				6521F180144E6B1500CBCC36 /* Products */,
@@ -93,6 +274,151 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6521F197144E6C3100CBCC36 /* Library Source */ = {
+			isa = PBXGroup;
+			children = (
+				6521F210144E6D6600CBCC36 /* includes */,
+				6521F207144E6D5000CBCC36 /* ctlib */,
+				6521F1F8144E6D1200CBCC36 /* dblib */,
+				6521F1DF144E6CEC00CBCC36 /* replacements */,
+				6521F1DE144E6CD600CBCC36 /* tds */,
+			);
+			name = "Library Source";
+			sourceTree = "<group>";
+		};
+		6521F1DE144E6CD600CBCC36 /* tds */ = {
+			isa = PBXGroup;
+			children = (
+				6521F198144E6CC100CBCC36 /* bulk.c */,
+				6521F199144E6CC100CBCC36 /* challenge.c */,
+				6521F19A144E6CC100CBCC36 /* config.c */,
+				6521F19B144E6CC100CBCC36 /* convert.c */,
+				6521F19C144E6CC100CBCC36 /* data.c */,
+				6521F19D144E6CC100CBCC36 /* des.c */,
+				6521F19E144E6CC100CBCC36 /* encodings.h */,
+				6521F19F144E6CC100CBCC36 /* enum_cap.h */,
+				6521F1A0144E6CC100CBCC36 /* getmac.c */,
+				6521F1A1144E6CC100CBCC36 /* gssapi.c */,
+				6521F1A2144E6CC100CBCC36 /* hmac_md5.c */,
+				6521F1A3144E6CC100CBCC36 /* iconv.c */,
+				6521F1A4144E6CC100CBCC36 /* locale.c */,
+				6521F1A5144E6CC100CBCC36 /* log.c */,
+				6521F1A6144E6CC100CBCC36 /* login.c */,
+				6521F1A7144E6CC100CBCC36 /* md4.c */,
+				6521F1A8144E6CC100CBCC36 /* md5.c */,
+				6521F1A9144E6CC100CBCC36 /* mem.c */,
+				6521F1AA144E6CC100CBCC36 /* net.c */,
+				6521F1AB144E6CC100CBCC36 /* num_limits.h */,
+				6521F1AC144E6CC100CBCC36 /* numeric.c */,
+				6521F1AE144E6CC100CBCC36 /* query.c */,
+				6521F1AF144E6CC100CBCC36 /* read.c */,
+				6521F1B0144E6CC100CBCC36 /* sspi.c */,
+				6521F1B1144E6CC100CBCC36 /* tds_checks.c */,
+				6521F1B2144E6CC100CBCC36 /* tds_checks.h */,
+				6521F1B3144E6CC100CBCC36 /* tds_types.h */,
+				6521F1B4144E6CC100CBCC36 /* tds_willconvert.h */,
+				6521F1B5144E6CC100CBCC36 /* tdsstring.c */,
+				6521F1B6144E6CC100CBCC36 /* threadsafe.c */,
+				6521F1B7144E6CC100CBCC36 /* token.c */,
+				6521F1B8144E6CC100CBCC36 /* util.c */,
+				6521F1B9144E6CC100CBCC36 /* vstrbuild.c */,
+				6521F1BA144E6CC100CBCC36 /* write.c */,
+			);
+			name = tds;
+			sourceTree = "<group>";
+		};
+		6521F1DF144E6CEC00CBCC36 /* replacements */ = {
+			isa = PBXGroup;
+			children = (
+				6521F1E0144E6D0400CBCC36 /* asprintf.c */,
+				6521F1E1144E6D0400CBCC36 /* atoll.c */,
+				6521F1E2144E6D0400CBCC36 /* basename.c */,
+				6521F1E3144E6D0400CBCC36 /* fakepoll.c */,
+				6521F1E4144E6D0400CBCC36 /* getopt.c */,
+				6521F1E5144E6D0400CBCC36 /* gettimeofday.c */,
+				6521F1E6144E6D0400CBCC36 /* iconv.c */,
+				6521F1E7144E6D0400CBCC36 /* readpassphrase.c */,
+				6521F1E8144E6D0400CBCC36 /* strlcat.c */,
+				6521F1E9144E6D0400CBCC36 /* strlcpy.c */,
+				6521F1EA144E6D0400CBCC36 /* strtok_r.c */,
+				6521F1EB144E6D0400CBCC36 /* vasprintf.c */,
+			);
+			name = replacements;
+			sourceTree = "<group>";
+		};
+		6521F1F8144E6D1200CBCC36 /* dblib */ = {
+			isa = PBXGroup;
+			children = (
+				6521F1F9144E6D2600CBCC36 /* bcp.c */,
+				6521F1FA144E6D2600CBCC36 /* buffering.h */,
+				6521F1FB144E6D2600CBCC36 /* dblib.c */,
+				6521F1FC144E6D2600CBCC36 /* dbopen.c */,
+				6521F1FD144E6D2600CBCC36 /* dbutil.c */,
+				6521F1FE144E6D2600CBCC36 /* rpc.c */,
+				6521F1FF144E6D2600CBCC36 /* xact.c */,
+			);
+			name = dblib;
+			sourceTree = "<group>";
+		};
+		6521F207144E6D5000CBCC36 /* ctlib */ = {
+			isa = PBXGroup;
+			children = (
+				6521F208144E6D5F00CBCC36 /* blk.c */,
+				6521F209144E6D5F00CBCC36 /* cs.c */,
+				6521F20A144E6D5F00CBCC36 /* ct.c */,
+				6521F20B144E6D5F00CBCC36 /* ctutil.c */,
+			);
+			name = ctlib;
+			sourceTree = "<group>";
+		};
+		6521F210144E6D6600CBCC36 /* includes */ = {
+			isa = PBXGroup;
+			children = (
+				6521F252144E6E1100CBCC36 /* config.h */,
+				6521F253144E6E1100CBCC36 /* tds_sysdep_public.h */,
+				6521F24F144E6D9900CBCC36 /* replacements */,
+				6521F211144E6D8D00CBCC36 /* bkpublic.h */,
+				6521F213144E6D8D00CBCC36 /* cspublic.h */,
+				6521F214144E6D8D00CBCC36 /* cstypes.h */,
+				6521F215144E6D8D00CBCC36 /* ctlib.h */,
+				6521F216144E6D8D00CBCC36 /* ctpublic.h */,
+				6521F217144E6D8D00CBCC36 /* dblib.h */,
+				6521F218144E6D8D00CBCC36 /* des.h */,
+				6521F219144E6D8D00CBCC36 /* fakepoll.h */,
+				6521F21A144E6D8D00CBCC36 /* hmac_md5.h */,
+				6521F21B144E6D8D00CBCC36 /* md4.h */,
+				6521F21C144E6D8D00CBCC36 /* md5.h */,
+				6521F21D144E6D8D00CBCC36 /* odbcss.h */,
+				6521F21E144E6D8D00CBCC36 /* replacements.h */,
+				6521F21F144E6D8D00CBCC36 /* sqldb.h */,
+				6521F220144E6D8D00CBCC36 /* sqlfront.h */,
+				6521F221144E6D8D00CBCC36 /* sybdb.h */,
+				6521F222144E6D8D00CBCC36 /* syberror.h */,
+				6521F223144E6D8D00CBCC36 /* sybfront.h */,
+				6521F224144E6D8D00CBCC36 /* tds_configs.h */,
+				6521F225144E6D8D00CBCC36 /* tds_sysdep_private.h */,
+				6521F226144E6D8D00CBCC36 /* tds.h */,
+				6521F227144E6D8D00CBCC36 /* tdsbytes.h */,
+				6521F228144E6D8D00CBCC36 /* tdsconvert.h */,
+				6521F229144E6D8D00CBCC36 /* tdsiconv.h */,
+				6521F22A144E6D8D00CBCC36 /* tdsodbc.h */,
+				6521F22B144E6D8D00CBCC36 /* tdssrv.h */,
+				6521F22C144E6D8D00CBCC36 /* tdsstring.h */,
+				6521F22D144E6D8D00CBCC36 /* tdsthread.h */,
+				6521F22E144E6D8D00CBCC36 /* tdsver.h */,
+				6521F22F144E6D8D00CBCC36 /* tdsver.h.in */,
+			);
+			name = includes;
+			sourceTree = "<group>";
+		};
+		6521F24F144E6D9900CBCC36 /* replacements */ = {
+			isa = PBXGroup;
+			children = (
+				6521F250144E6DAB00CBCC36 /* readpassphrase.h */,
+			);
+			name = replacements;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -100,6 +426,45 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6521F1C1144E6CC100CBCC36 /* encodings.h in Headers */,
+				6521F1C2144E6CC100CBCC36 /* enum_cap.h in Headers */,
+				6521F1CE144E6CC100CBCC36 /* num_limits.h in Headers */,
+				6521F1D5144E6CC100CBCC36 /* tds_checks.h in Headers */,
+				6521F1D6144E6CC100CBCC36 /* tds_types.h in Headers */,
+				6521F1D7144E6CC100CBCC36 /* tds_willconvert.h in Headers */,
+				6521F201144E6D2600CBCC36 /* buffering.h in Headers */,
+				6521F230144E6D8D00CBCC36 /* bkpublic.h in Headers */,
+				6521F232144E6D8D00CBCC36 /* cspublic.h in Headers */,
+				6521F233144E6D8D00CBCC36 /* cstypes.h in Headers */,
+				6521F234144E6D8D00CBCC36 /* ctlib.h in Headers */,
+				6521F235144E6D8D00CBCC36 /* ctpublic.h in Headers */,
+				6521F236144E6D8D00CBCC36 /* dblib.h in Headers */,
+				6521F237144E6D8D00CBCC36 /* des.h in Headers */,
+				6521F238144E6D8D00CBCC36 /* fakepoll.h in Headers */,
+				6521F239144E6D8D00CBCC36 /* hmac_md5.h in Headers */,
+				6521F23A144E6D8D00CBCC36 /* md4.h in Headers */,
+				6521F23B144E6D8D00CBCC36 /* md5.h in Headers */,
+				6521F23C144E6D8D00CBCC36 /* odbcss.h in Headers */,
+				6521F23D144E6D8D00CBCC36 /* replacements.h in Headers */,
+				6521F23E144E6D8D00CBCC36 /* sqldb.h in Headers */,
+				6521F23F144E6D8D00CBCC36 /* sqlfront.h in Headers */,
+				6521F240144E6D8D00CBCC36 /* sybdb.h in Headers */,
+				6521F241144E6D8D00CBCC36 /* syberror.h in Headers */,
+				6521F242144E6D8D00CBCC36 /* sybfront.h in Headers */,
+				6521F243144E6D8D00CBCC36 /* tds_configs.h in Headers */,
+				6521F244144E6D8D00CBCC36 /* tds_sysdep_private.h in Headers */,
+				6521F245144E6D8D00CBCC36 /* tds.h in Headers */,
+				6521F246144E6D8D00CBCC36 /* tdsbytes.h in Headers */,
+				6521F247144E6D8D00CBCC36 /* tdsconvert.h in Headers */,
+				6521F248144E6D8D00CBCC36 /* tdsiconv.h in Headers */,
+				6521F249144E6D8D00CBCC36 /* tdsodbc.h in Headers */,
+				6521F24A144E6D8D00CBCC36 /* tdssrv.h in Headers */,
+				6521F24B144E6D8D00CBCC36 /* tdsstring.h in Headers */,
+				6521F24C144E6D8D00CBCC36 /* tdsthread.h in Headers */,
+				6521F24D144E6D8D00CBCC36 /* tdsver.h in Headers */,
+				6521F251144E6DAB00CBCC36 /* readpassphrase.h in Headers */,
+				6521F254144E6E1100CBCC36 /* config.h in Headers */,
+				6521F255144E6E1100CBCC36 /* tds_sysdep_public.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6521F18D144E6B1500CBCC36 /* InfoPlist.strings in Resources */,
+				6521F24E144E6D8D00CBCC36 /* tdsver.h.in in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +532,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				6521F191144E6B1500CBCC36 /* FreeTDS.m in Sources */,
+				6521F1BB144E6CC100CBCC36 /* bulk.c in Sources */,
+				6521F1BC144E6CC100CBCC36 /* challenge.c in Sources */,
+				6521F1BD144E6CC100CBCC36 /* config.c in Sources */,
+				6521F1BE144E6CC100CBCC36 /* convert.c in Sources */,
+				6521F1BF144E6CC100CBCC36 /* data.c in Sources */,
+				6521F1C0144E6CC100CBCC36 /* des.c in Sources */,
+				6521F1C3144E6CC100CBCC36 /* getmac.c in Sources */,
+				6521F1C4144E6CC100CBCC36 /* gssapi.c in Sources */,
+				6521F1C5144E6CC100CBCC36 /* hmac_md5.c in Sources */,
+				6521F1C6144E6CC100CBCC36 /* iconv.c in Sources */,
+				6521F1C7144E6CC100CBCC36 /* locale.c in Sources */,
+				6521F1C8144E6CC100CBCC36 /* log.c in Sources */,
+				6521F1C9144E6CC100CBCC36 /* login.c in Sources */,
+				6521F1CA144E6CC100CBCC36 /* md4.c in Sources */,
+				6521F1CB144E6CC100CBCC36 /* md5.c in Sources */,
+				6521F1CC144E6CC100CBCC36 /* mem.c in Sources */,
+				6521F1CD144E6CC100CBCC36 /* net.c in Sources */,
+				6521F1CF144E6CC100CBCC36 /* numeric.c in Sources */,
+				6521F1D1144E6CC100CBCC36 /* query.c in Sources */,
+				6521F1D2144E6CC100CBCC36 /* read.c in Sources */,
+				6521F1D3144E6CC100CBCC36 /* sspi.c in Sources */,
+				6521F1D4144E6CC100CBCC36 /* tds_checks.c in Sources */,
+				6521F1D8144E6CC100CBCC36 /* tdsstring.c in Sources */,
+				6521F1D9144E6CC100CBCC36 /* threadsafe.c in Sources */,
+				6521F1DA144E6CC100CBCC36 /* token.c in Sources */,
+				6521F1DB144E6CC100CBCC36 /* util.c in Sources */,
+				6521F1DC144E6CC100CBCC36 /* vstrbuild.c in Sources */,
+				6521F1DD144E6CC100CBCC36 /* write.c in Sources */,
+				6521F1EC144E6D0400CBCC36 /* asprintf.c in Sources */,
+				6521F1ED144E6D0400CBCC36 /* atoll.c in Sources */,
+				6521F1EE144E6D0400CBCC36 /* basename.c in Sources */,
+				6521F1EF144E6D0400CBCC36 /* fakepoll.c in Sources */,
+				6521F1F0144E6D0400CBCC36 /* getopt.c in Sources */,
+				6521F1F1144E6D0400CBCC36 /* gettimeofday.c in Sources */,
+				6521F1F2144E6D0400CBCC36 /* iconv.c in Sources */,
+				6521F1F3144E6D0400CBCC36 /* readpassphrase.c in Sources */,
+				6521F1F4144E6D0400CBCC36 /* strlcat.c in Sources */,
+				6521F1F5144E6D0400CBCC36 /* strlcpy.c in Sources */,
+				6521F1F6144E6D0400CBCC36 /* strtok_r.c in Sources */,
+				6521F1F7144E6D0400CBCC36 /* vasprintf.c in Sources */,
+				6521F200144E6D2600CBCC36 /* bcp.c in Sources */,
+				6521F202144E6D2600CBCC36 /* dblib.c in Sources */,
+				6521F203144E6D2600CBCC36 /* dbopen.c in Sources */,
+				6521F204144E6D2600CBCC36 /* dbutil.c in Sources */,
+				6521F205144E6D2600CBCC36 /* rpc.c in Sources */,
+				6521F206144E6D2600CBCC36 /* xact.c in Sources */,
+				6521F20C144E6D5F00CBCC36 /* blk.c in Sources */,
+				6521F20D144E6D5F00CBCC36 /* cs.c in Sources */,
+				6521F20E144E6D5F00CBCC36 /* ct.c in Sources */,
+				6521F20F144E6D5F00CBCC36 /* ctutil.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +652,11 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FreeTDS/FreeTDS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"HAVE_CONFIG_H=1",
+					"_FREETDS_LIBRARY_SOURCE=1",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/src/freetds/include";
 				INFOPLIST_FILE = "FreeTDS/FreeTDS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
@@ -250,6 +671,11 @@
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FreeTDS/FreeTDS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"HAVE_CONFIG_H=1",
+					"_FREETDS_LIBRARY_SOURCE=1",
+				);
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/src/freetds/include";
 				INFOPLIST_FILE = "FreeTDS/FreeTDS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
