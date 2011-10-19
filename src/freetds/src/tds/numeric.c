@@ -116,7 +116,7 @@ tds_money_to_string(const TDS_MONEY * money, char *s)
 	frac = (int) (n % 100);
 	n /= 100;
 	/* if machine is 64 bit you do not need to split n */
-	sprintf(p, "%" PRId64 ".%02d", n, frac);
+	sprintf(p, "%" PRIdPTR ".%02d", n, frac);
 	return s;
 #else
 	unsigned char multiplier[MAXPRECISION], temp[MAXPRECISION];
@@ -506,8 +506,8 @@ tds_numeric_change_prec_scale(TDS_NUMERIC * numeric, unsigned char new_prec, uns
 				borrow = Int64div32(&packet[i], borrow, factor);
 #else
 				TDS_DWORD n = (((TDS_DWORD) borrow) << (8 * sizeof(TDS_WORD))) + packet[--i];
-				packet[i] = n / factor;
-				borrow = n % factor;
+				packet[i] = (TDS_UINT)(n / factor);
+				borrow = (TDS_UINT)(n % factor);
 #endif
 			}
 		} while (scale_diff > 0);

@@ -471,7 +471,7 @@ tds_convert_char(int srctype, const TDS_CHAR * src, TDS_UINT srclen, int desttyp
 			cr->m.mny = mymoney;
 			return sizeof(TDS_MONEY);
 		} else {
-			cr->m4.mny4 = atol(mynumber);
+			cr->m4.mny4 = (TDS_INT)atol(mynumber);
 			return sizeof(TDS_MONEY4);
 		}
 		break;
@@ -862,7 +862,7 @@ tds_convert_int8(int srctype, const TDS_CHAR * src, int desttype, CONV_RESULT * 
 	switch (desttype) {
 	case TDS_CONVERT_CHAR:
 	case CASE_ALL_CHAR:
-		sprintf(tmp_str, "%" PRId64, buf);
+		sprintf(tmp_str, "%" PRIdPTR, buf);
 		return string_to_result(tmp_str, cr);
 		break;
 	case CASE_ALL_BINARY:
@@ -917,7 +917,7 @@ tds_convert_int8(int srctype, const TDS_CHAR * src, int desttype, CONV_RESULT * 
 		break;
 	case SYBNUMERIC:
 	case SYBDECIMAL:
-		sprintf(tmp_str, "%" PRId64, buf);
+		sprintf(tmp_str, "%" PRIdPTR, buf);
 		return stringz_to_numeric(tmp_str, cr);
 		break;
 		/* conversions not allowed */

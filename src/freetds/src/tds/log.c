@@ -74,7 +74,7 @@ int tds_g_append_mode = 0;
 static char *g_dump_filename = NULL;
 int tds_write_dump = 0;	/* is TDS stream debug log turned on? */
 static FILE *g_dumpfile = NULL;	/* file pointer for dump log          */
-static TDS_MUTEX_DEFINE(g_dump_mutex);
+TDS_MUTEX_STATIC TDS_MUTEX_DEFINE(g_dump_mutex);
 
 static FILE* tdsdump_append(void);
 

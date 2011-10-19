@@ -425,7 +425,7 @@ tds_process_login_tokens(TDSSOCKET * tds)
 		}
 	} while (marker != TDS_DONE_TOKEN);
 	/* TODO why ?? */
-	tds->spid = tds->rows_affected;
+	tds->spid = (int)tds->rows_affected;
 	if (tds->spid == 0) {
 		if (tds_set_spid(tds) != TDS_SUCCEED) {
 			tdsdump_log(TDS_DBG_ERROR, "tds_set_spid() failed\n");
@@ -1912,7 +1912,7 @@ tds9_get_varmax(TDSSOCKET * tds, TDSCOLUMN * curcol)
 
 		chunk_len = tds_get_int(tds);
 		if (chunk_len <= 0) {
-			curcol->column_cur_size = offset;
+			curcol->column_cur_size = (TDS_INT)offset;
 			return TDS_SUCCEED;
 		}
 		if (*p == NULL)
@@ -2367,7 +2367,7 @@ tds_process_end(TDSSOCKET * tds, int marker, int *flags_parm)
 	 */
 
 	rows_affected = IS_TDS72_PLUS(tds) ? tds_get_int8(tds) : tds_get_int(tds);
-	tdsdump_log(TDS_DBG_FUNC, "                rows_affected = %" PRId64 "\n", rows_affected);
+	tdsdump_log(TDS_DBG_FUNC, "                rows_affected = %" PRIdPTR "\n", rows_affected);
 	if (done_count_valid)
 		tds->rows_affected = rows_affected;
 	else

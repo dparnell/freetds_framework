@@ -943,7 +943,7 @@ tds8_do_login(TDSSOCKET * tds, TDSCONNECTION * connection)
 {
 	int i, len;
 	const char *instance_name = tds_dstr_isempty(&connection->instance_name) ? "MSSQLServer" : tds_dstr_cstr(&connection->instance_name);
-	int instance_name_len = strlen(instance_name) + 1;
+	int instance_name_len = (int)strlen(instance_name) + 1;
 	TDS_CHAR crypt_flag;
 	unsigned int start_pos = 21;
 #if defined(HAVE_GNUTLS) || defined(HAVE_OPENSSL)

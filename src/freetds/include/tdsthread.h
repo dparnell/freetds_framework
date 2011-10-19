@@ -58,6 +58,7 @@ static inline int tds_win_mutex_init(tds_win_mutex_t *mtx)
 }
 /* void tds_win_mutex_unlock(tds_win_mutex_t *mutex); */
 
+#define TDS_MUTEX_STATIC static
 #define TDS_MUTEX_DEFINE(name) tds_win_mutex_t name = { NULL, 0 }
 #define TDS_MUTEX_LOCK(mtx) \
 	do { if ((mtx)->done) EnterCriticalSection(&(mtx)->crit); else tds_win_mutex_lock(mtx); } while(0)
@@ -70,10 +71,11 @@ static inline int tds_win_mutex_init(tds_win_mutex_t *mtx)
 
 #else
 
-#define TDS_MUTEX_DEFINE(name) int name
+#define TDS_MUTEX_STATIC
+#define TDS_MUTEX_DEFINE(name) 
 #define TDS_MUTEX_LOCK(mtx)
 #define TDS_MUTEX_UNLOCK(mtx)
-#define TDS_MUTEX_DECLARE(name) int name
+#define TDS_MUTEX_DECLARE(name)
 #define TDS_MUTEX_INIT(mtx)
 #define TDS_MUTEX_FREE(mtx)
 

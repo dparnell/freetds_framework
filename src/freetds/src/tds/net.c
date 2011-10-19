@@ -448,7 +448,7 @@ tds_goodread(TDSSOCKET * tds, unsigned char *buf, int buflen, unsigned char unfi
 
 		if ((len = tds_select(tds, TDSSELREAD, tds->query_timeout)) > 0) {
 
-			len = READSOCKET(tds->s, buf + got, buflen);
+			len = (int)READSOCKET(tds->s, buf + got, buflen);
 
 			if (len < 0 && TDSSOCK_WOULDBLOCK(sock_errno))
 				continue;
@@ -711,7 +711,7 @@ tds_goodwrite(TDSSOCKET * tds, const unsigned char *buffer, size_t len, unsigned
 	}
 #endif
 
-	return len;
+	return (int)len;
 }
 
 int
@@ -1048,7 +1048,7 @@ tds7_get_instance_port(const char *ip_addr, const char *instance)
 				}
 			}
 			if (port_ok && instance_ok) {
-				port = l;
+				port = (int)l;
 				break;
 			}
 		}

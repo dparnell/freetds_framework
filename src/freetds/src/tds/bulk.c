@@ -894,7 +894,7 @@ tds_bcp_done(TDSSOCKET *tds, int *rows_copied)
 		return TDS_FAIL;
 
 	if (rows_copied)
-		*rows_copied = tds->rows_affected;
+		*rows_copied = (int)tds->rows_affected;
 
 	return TDS_SUCCEED;
 }

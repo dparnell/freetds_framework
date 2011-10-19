@@ -332,7 +332,7 @@ blk_init(CS_BLKDESC * blkdesc, CS_INT direction, CS_CHAR * tablename, CS_INT tna
 		return CS_FAIL;
 	}
 	if (tnamelen == CS_NULLTERM)
-		tnamelen = strlen(tablename);
+		tnamelen = (CS_INT)strlen(tablename);
 
 	/* free allocated storage in blkdesc & initialise flags, etc. */
 

@@ -2437,7 +2437,7 @@ _bcp_get_col_data(TDSBCPINFO *bcpinfo, TDSCOLUMN *bindcol, int offset)
 
 	/* if (Max) column length specified take that into consideration. */
 
-	if (!data_is_null && bindcol->column_bindlen >= 0) {
+	if (!data_is_null && (int)bindcol->column_bindlen >= 0) {
 		if (bindcol->column_bindlen == 0)
 			data_is_null = 1;
 		else {

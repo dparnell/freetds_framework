@@ -458,7 +458,7 @@ const char *
 tds_inet_ntoa_r(struct in_addr iaddr, char *ip, size_t len)
 {
 #if defined(AF_INET) && HAVE_INET_NTOP
-	inet_ntop(AF_INET, &iaddr, ip, len);
+	inet_ntop(AF_INET, &iaddr, ip, (socklen_t)len);
 #elif HAVE_INET_NTOA_R
 	inet_ntoa_r(iaddr, ip, len);
 #else

@@ -616,7 +616,7 @@ tds_get_column_declaration(TDSSOCKET * tds, TDSCOLUMN * curcol, char *out)
 	CHECK_TDS_EXTRA(tds);
 	CHECK_COLUMN_EXTRA(curcol);
 
-	size = tds_fix_column_size(tds, curcol);
+	size = (unsigned int)tds_fix_column_size(tds, curcol);
 
 	switch (tds_get_conversion_type(curcol->on_server.column_type, curcol->on_server.column_size)) {
 	case XSYBCHAR:
@@ -1499,7 +1499,7 @@ tds_put_data_info(TDSSOCKET * tds, TDSCOLUMN * curcol, int flags)
 			break;
 		case 5:
 		case 4:
-			tds_put_int(tds, size);
+			tds_put_int(tds, (TDS_INT)size);
 			break;
 		case 8:
 			tds_put_smallint(tds, 0xffff);
@@ -1621,7 +1621,7 @@ tds_put_data(TDSSOCKET * tds, TDSCOLUMN * curcol)
 		/* we need to convert data before */
 		/* TODO this can be a waste of memory... */
 		converted = 1;
-		s = tds_convert_string(tds, curcol->char_conv, s, colsize, &output_size);
+		s = tds_convert_string(tds, curcol->char_conv, s, (TDS_INT)colsize, &output_size);
 		colsize = (TDS_INT)output_size;
 		if (!s) {
 			/* on conversion error put a empty string */
@@ -1643,12 +1643,12 @@ tds_put_data(TDSSOCKET * tds, TDSCOLUMN * curcol)
 		switch (curcol->column_varint_size) {
 		case 8:
 			tds_put_int8(tds, colsize);
-			tds_put_int(tds, colsize);
+			tds_put_int(tds, (TDS_INT)colsize);
 			break;
 		case 4:	/* It's a BLOB... */
 			colsize = MIN(colsize, size);
 			/* mssql require only size */
-			tds_put_int(tds, colsize);
+			tds_put_int(tds, (TDS_INT)colsize);
 			break;
 		case 2:
 			colsize = MIN(colsize, size);
@@ -1703,14 +1703,14 @@ tds_put_data(TDSSOCKET * tds, TDSCOLUMN * curcol)
 		switch (curcol->column_varint_size) {
 		case 5:	/* It's a LONGBINARY */
 			colsize = MIN(colsize, 0x7fffffff);
-			tds_put_int(tds, colsize);
+			tds_put_int(tds, (TDS_INT)colsize);
 			break;
 		case 4:	/* It's a BLOB... */
 			tds_put_byte(tds, 16);
 			tds_put_n(tds, blob->textptr, 16);
 			tds_put_n(tds, blob->timestamp, 8);
 			colsize = MIN(colsize, 0x7fffffff);
-			tds_put_int(tds, colsize);
+			tds_put_int(tds, (TDS_INT)colsize);
 			break;
 		case 2:
 			colsize = MIN(colsize, 8000);

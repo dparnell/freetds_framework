@@ -362,7 +362,7 @@ ct_con_props(CS_CONNECTION * con, CS_INT action, CS_INT property, CS_VOID * buff
 		if (property == CS_USERNAME || property == CS_PASSWORD || property == CS_APPNAME ||
 			property == CS_HOSTNAME || property == CS_SERVERADDR) {
 			if (buflen == CS_NULLTERM) {
-				maxcp = strlen((char *) buffer);
+				maxcp = (CS_INT)strlen((char *) buffer);
 				set_buffer = (char *) malloc(maxcp + 1);
 				strcpy(set_buffer, (char *) buffer);
 			} else if (buflen == CS_UNUSED) {
@@ -476,27 +476,27 @@ ct_con_props(CS_CONNECTION * con, CS_INT action, CS_INT property, CS_VOID * buff
 		switch (property) {
 		case CS_USERNAME:
 			if (out_len)
-				*out_len = tds_dstr_len(&tds_login->user_name);
+				*out_len = (CS_INT)tds_dstr_len(&tds_login->user_name);
 			tds_strlcpy((char *) buffer, tds_dstr_cstr(&tds_login->user_name), buflen);
 			break;
 		case CS_PASSWORD:
 			if (out_len)
-				*out_len = tds_dstr_len(&tds_login->password);
+				*out_len = (CS_INT)tds_dstr_len(&tds_login->password);
 			tds_strlcpy((char *) buffer, tds_dstr_cstr(&tds_login->password), buflen);
 			break;
 		case CS_APPNAME:
 			if (out_len)
-				*out_len = tds_dstr_len(&tds_login->app_name);
+				*out_len = (CS_INT)tds_dstr_len(&tds_login->app_name);
 			tds_strlcpy((char *) buffer, tds_dstr_cstr(&tds_login->app_name), buflen);
 			break;
 		case CS_HOSTNAME:
 			if (out_len)
-				*out_len = tds_dstr_len(&tds_login->client_host_name);
+				*out_len = (CS_INT)tds_dstr_len(&tds_login->client_host_name);
 			tds_strlcpy((char *) buffer, tds_dstr_cstr(&tds_login->client_host_name), buflen);
 			break;
 		case CS_SERVERNAME:
 			if (out_len)
-				*out_len = tds_dstr_len(&tds_login->server_name);
+				*out_len = (CS_INT)tds_dstr_len(&tds_login->server_name);
 			tds_strlcpy((char *) buffer, tds_dstr_cstr(&tds_login->server_name), buflen);
 			break;
 		case CS_LOC_PROP:
@@ -719,7 +719,7 @@ ct_command(CS_COMMAND * cmd, CS_INT type, const CS_VOID * buffer, CS_INT buflen,
 		case CS_END:	/* The text in buffer is the last part of the language command to be executed. */
 		case CS_UNUSED:	/* Equivalent to CS_END. */
 			if (buflen == CS_NULLTERM) {
-				query_len = strlen((const char *) buffer);
+				query_len = (int)strlen((const char *) buffer);
 			} else {
 				query_len = buflen;
 			}
@@ -739,7 +739,7 @@ ct_command(CS_COMMAND * cmd, CS_INT type, const CS_VOID * buffer, CS_INT buflen,
 				}
 			}
 			if (cmd->command_state == _CS_COMMAND_BUILDING) {
-				current_query_len = strlen(cmd->query);
+				current_query_len = (int)strlen(cmd->query);
 				cmd->query = (char *) realloc(cmd->query, current_query_len + query_len + 1);
 				strncat(cmd->query, (const char *) buffer, query_len);
 				cmd->query[current_query_len + query_len] = '\0';
@@ -2367,7 +2367,7 @@ ct_res_info(CS_COMMAND * cmd, CS_INT type, CS_VOID * buffer, CS_INT buflen, CS_I
 		break;
 	case CS_ROW_COUNT:
 		/* TODO 64 -> 32 bit conversion check overflow */
-		int_val = tds->rows_affected;
+		int_val = (CS_INT)tds->rows_affected;
 		tdsdump_log(TDS_DBG_FUNC, "ct_res_info(): Number of rows is %d\n", int_val);
 		memcpy(buffer, &int_val, sizeof(CS_INT));
 		break;
@@ -2429,7 +2429,7 @@ ct_config(CS_CONTEXT * ctx, CS_INT action, CS_INT property, CS_VOID * buffer, CS
 					);
 					((char*)buffer)[buflen - 1]= 0;
 					if (*outlen < 0)
-						*outlen = strlen((char*) buffer);
+						*outlen = (CS_INT)strlen((char*) buffer);
 					ret = CS_SUCCEED;
 				}
 				break;
@@ -2449,7 +2449,7 @@ ct_config(CS_CONTEXT * ctx, CS_INT action, CS_INT property, CS_VOID * buffer, CS
 					*outlen= snprintf(buffer, buflen, "%s", settings->freetds_version);
 					((char*)buffer)[buflen - 1]= 0;
 					if (*outlen < 0)
-						*outlen = strlen((char*) buffer);
+						*outlen = (CS_INT)strlen((char*) buffer);
 					ret = CS_SUCCEED;
 				}
 				break;
@@ -2533,7 +2533,7 @@ ct_cmd_props(CS_COMMAND * cmd, CS_INT action, CS_INT property, CS_VOID * buffer,
 				if (len >= buflen)
 					return CS_FAIL;
 				strcpy(buffer, cursor->cursor_name);
-				if (outlen) *outlen = len;
+				if (outlen) *outlen = (CS_INT)len;
 			}
 			if (property == CS_CUR_ROWCOUNT) {
 				*(CS_INT *)buffer = cursor->cursor_rows;
@@ -2719,7 +2719,7 @@ ct_get_data(CS_COMMAND * cmd, CS_INT item, CS_VOID * buffer, CS_INT buflen, CS_I
 			(int) table_namelen, (int) table_namelen, curcol->table_name,
 			(int) column_namelen, (int) column_namelen, curcol->column_name);
 
-		cmd->iodesc->namelen = strlen(cmd->iodesc->name);
+		cmd->iodesc->namelen = (CS_INT)strlen(cmd->iodesc->name);
 
 		if (blob) {
 			memcpy(cmd->iodesc->timestamp, blob->timestamp, CS_TS_SIZE);
@@ -3095,7 +3095,7 @@ ct_dynamic(CS_COMMAND * cmd, CS_INT type, CS_CHAR * id, CS_INT idlen, CS_CHAR * 
 
 		/* now the query */
 		if (buflen == CS_NULLTERM) {
-			query_len = strlen(buffer);
+			query_len = (CS_INT)strlen(buffer);
 		} else {
 			query_len = buflen;
 		}
@@ -3691,8 +3691,8 @@ ct_cursor(CS_COMMAND * cmd, CS_INT type, CS_CHAR * name, CS_INT namelen, CS_CHAR
 	switch (type) {
 	case CS_CURSOR_DECLARE:
 
-		cursor = tds_alloc_cursor(tds, name, namelen == CS_NULLTERM ? strlen(name) + 1 : namelen,
-						text, tlen == CS_NULLTERM ? strlen(text) + 1 : tlen);
+		cursor = tds_alloc_cursor(tds, name, namelen == CS_NULLTERM ? (TDS_INT)strlen(name) + 1 : namelen,
+						text, tlen == CS_NULLTERM ? (TDS_INT)strlen(text) + 1 : tlen);
 		if (!cursor)
 			return CS_FAIL;
 
@@ -3996,7 +3996,7 @@ paraminfoalloc(TDSSOCKET * tds, CS_PARAM * first_param)
 		tds_set_param_type(tds, pcol, tds_type);
 
 		if (temp_datalen == CS_NULLTERM && temp_value)
-			temp_datalen = strlen((const char*) temp_value);
+			temp_datalen = (CS_INT)strlen((const char*) temp_value);
 
 		pcol->column_prec = p->precision;
 		pcol->column_scale = p->scale;
@@ -4165,7 +4165,7 @@ _ct_fill_param(CS_INT cmd_type, CS_PARAM *param, CS_DATAFMT *datafmt, CS_VOID *d
 					tdsdump_log(TDS_DBG_INFO1,
 						    " _ct_fill_param() about to strdup string %u bytes long\n",
 						    (unsigned int) strlen(data));
-					*(param->datalen) = strlen(data);
+					*(param->datalen) = (CS_INT)strlen(data);
 				} else if (*(param->datalen) < 0) {
 					return CS_FAIL;
 				}
@@ -4528,7 +4528,7 @@ _ct_allocate_dynamic(CS_CONNECTION * con, char *id, int idlen)
 	dyn = (CS_DYNAMIC *) calloc(1, sizeof(CS_DYNAMIC));
 
 	if (idlen == CS_NULLTERM)
-		id_len = strlen(id);
+		id_len = (int)strlen(id);
 	else
 		id_len = idlen;
 
@@ -4561,7 +4561,7 @@ _ct_locate_dynamic(CS_CONNECTION * con, char *id, int idlen)
 	tdsdump_log(TDS_DBG_FUNC, "_ct_locate_dynamic(%p, %p, %d)\n", con, id, idlen);
 
 	if (idlen == CS_NULLTERM)
-		id_len = strlen(id);
+		id_len = (int)strlen(id);
 	else
 		id_len = idlen;
 
