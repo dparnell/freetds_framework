@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FreeTDS/sybdb.h>
 
 @interface FreeTDS : NSObject
 
