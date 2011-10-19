@@ -18,10 +18,10 @@
 		6521F185144E6B1500CBCC36 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		6521F186144E6B1500CBCC36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6521F187144E6B1500CBCC36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		6521F18A144E6B1500CBCC36 /* FreeTDS-Info.plist */ = {isa = PBXFileReference; path = "FreeTDS-Info.plist"; sourceTree = "<group>"; };
+		6521F18A144E6B1500CBCC36 /* FreeTDS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FreeTDS-Info.plist"; sourceTree = "<group>"; };
 		6521F18C144E6B1500CBCC36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6521F18E144E6B1500CBCC36 /* FreeTDS-Prefix.pch */ = {isa = PBXFileReference; path = "FreeTDS-Prefix.pch"; sourceTree = "<group>"; };
-		6521F18F144E6B1500CBCC36 /* FreeTDS.h */ = {isa = PBXFileReference; path = FreeTDS.h; sourceTree = "<group>"; };
+		6521F18E144E6B1500CBCC36 /* FreeTDS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FreeTDS-Prefix.pch"; sourceTree = "<group>"; };
+		6521F18F144E6B1500CBCC36 /* FreeTDS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreeTDS.h; sourceTree = "<group>"; };
 		6521F190144E6B1500CBCC36 /* FreeTDS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreeTDS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

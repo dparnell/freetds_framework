@@ -1,0 +1,9 @@
+/build/
+/chromium/.gclient
+/chromium/.gclient_entries
+/chromium/README-archive
+/chromium/src/
+*.xcworkspace
+xcuserdata
+
+.DS_Store
