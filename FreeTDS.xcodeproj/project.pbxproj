@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6521F183144E6B1500CBCC36 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6521F182144E6B1500CBCC36 /* Cocoa.framework */; };
 		6521F18D144E6B1500CBCC36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6521F18B144E6B1500CBCC36 /* InfoPlist.strings */; };
 		6521F191144E6B1500CBCC36 /* FreeTDS.m in Sources */ = {isa = PBXBuildFile; fileRef = 6521F190144E6B1500CBCC36 /* FreeTDS.m */; };
 		6521F1BB144E6CC100CBCC36 /* bulk.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F198144E6CC100CBCC36 /* bulk.c */; };
@@ -44,18 +43,6 @@
 		6521F1DB144E6CC100CBCC36 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1B8144E6CC100CBCC36 /* util.c */; };
 		6521F1DC144E6CC100CBCC36 /* vstrbuild.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1B9144E6CC100CBCC36 /* vstrbuild.c */; };
 		6521F1DD144E6CC100CBCC36 /* write.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1BA144E6CC100CBCC36 /* write.c */; };
-		6521F1EC144E6D0400CBCC36 /* asprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E0144E6D0400CBCC36 /* asprintf.c */; };
-		6521F1ED144E6D0400CBCC36 /* atoll.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E1144E6D0400CBCC36 /* atoll.c */; };
-		6521F1EE144E6D0400CBCC36 /* basename.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E2144E6D0400CBCC36 /* basename.c */; };
-		6521F1EF144E6D0400CBCC36 /* fakepoll.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E3144E6D0400CBCC36 /* fakepoll.c */; };
-		6521F1F0144E6D0400CBCC36 /* getopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E4144E6D0400CBCC36 /* getopt.c */; };
-		6521F1F1144E6D0400CBCC36 /* gettimeofday.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E5144E6D0400CBCC36 /* gettimeofday.c */; };
-		6521F1F2144E6D0400CBCC36 /* iconv.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E6144E6D0400CBCC36 /* iconv.c */; };
-		6521F1F3144E6D0400CBCC36 /* readpassphrase.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E7144E6D0400CBCC36 /* readpassphrase.c */; };
-		6521F1F4144E6D0400CBCC36 /* strlcat.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E8144E6D0400CBCC36 /* strlcat.c */; };
-		6521F1F5144E6D0400CBCC36 /* strlcpy.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1E9144E6D0400CBCC36 /* strlcpy.c */; };
-		6521F1F6144E6D0400CBCC36 /* strtok_r.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1EA144E6D0400CBCC36 /* strtok_r.c */; };
-		6521F1F7144E6D0400CBCC36 /* vasprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1EB144E6D0400CBCC36 /* vasprintf.c */; };
 		6521F200144E6D2600CBCC36 /* bcp.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1F9144E6D2600CBCC36 /* bcp.c */; };
 		6521F201144E6D2600CBCC36 /* buffering.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F1FA144E6D2600CBCC36 /* buffering.h */; };
 		6521F202144E6D2600CBCC36 /* dblib.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F1FB144E6D2600CBCC36 /* dblib.c */; };
@@ -67,11 +54,11 @@
 		6521F20D144E6D5F00CBCC36 /* cs.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F209144E6D5F00CBCC36 /* cs.c */; };
 		6521F20E144E6D5F00CBCC36 /* ct.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F20A144E6D5F00CBCC36 /* ct.c */; };
 		6521F20F144E6D5F00CBCC36 /* ctutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6521F20B144E6D5F00CBCC36 /* ctutil.c */; };
-		6521F230144E6D8D00CBCC36 /* bkpublic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F211144E6D8D00CBCC36 /* bkpublic.h */; };
-		6521F232144E6D8D00CBCC36 /* cspublic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F213144E6D8D00CBCC36 /* cspublic.h */; };
-		6521F233144E6D8D00CBCC36 /* cstypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F214144E6D8D00CBCC36 /* cstypes.h */; };
+		6521F230144E6D8D00CBCC36 /* bkpublic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F211144E6D8D00CBCC36 /* bkpublic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6521F232144E6D8D00CBCC36 /* cspublic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F213144E6D8D00CBCC36 /* cspublic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6521F233144E6D8D00CBCC36 /* cstypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F214144E6D8D00CBCC36 /* cstypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6521F234144E6D8D00CBCC36 /* ctlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F215144E6D8D00CBCC36 /* ctlib.h */; };
-		6521F235144E6D8D00CBCC36 /* ctpublic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F216144E6D8D00CBCC36 /* ctpublic.h */; };
+		6521F235144E6D8D00CBCC36 /* ctpublic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F216144E6D8D00CBCC36 /* ctpublic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6521F236144E6D8D00CBCC36 /* dblib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F217144E6D8D00CBCC36 /* dblib.h */; };
 		6521F237144E6D8D00CBCC36 /* des.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F218144E6D8D00CBCC36 /* des.h */; };
 		6521F238144E6D8D00CBCC36 /* fakepoll.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F219144E6D8D00CBCC36 /* fakepoll.h */; };
@@ -80,11 +67,11 @@
 		6521F23B144E6D8D00CBCC36 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21C144E6D8D00CBCC36 /* md5.h */; };
 		6521F23C144E6D8D00CBCC36 /* odbcss.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21D144E6D8D00CBCC36 /* odbcss.h */; };
 		6521F23D144E6D8D00CBCC36 /* replacements.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21E144E6D8D00CBCC36 /* replacements.h */; };
-		6521F23E144E6D8D00CBCC36 /* sqldb.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21F144E6D8D00CBCC36 /* sqldb.h */; };
-		6521F23F144E6D8D00CBCC36 /* sqlfront.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F220144E6D8D00CBCC36 /* sqlfront.h */; };
-		6521F240144E6D8D00CBCC36 /* sybdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F221144E6D8D00CBCC36 /* sybdb.h */; };
+		6521F23E144E6D8D00CBCC36 /* sqldb.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F21F144E6D8D00CBCC36 /* sqldb.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6521F23F144E6D8D00CBCC36 /* sqlfront.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F220144E6D8D00CBCC36 /* sqlfront.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6521F240144E6D8D00CBCC36 /* sybdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F221144E6D8D00CBCC36 /* sybdb.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6521F241144E6D8D00CBCC36 /* syberror.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F222144E6D8D00CBCC36 /* syberror.h */; };
-		6521F242144E6D8D00CBCC36 /* sybfront.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F223144E6D8D00CBCC36 /* sybfront.h */; };
+		6521F242144E6D8D00CBCC36 /* sybfront.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F223144E6D8D00CBCC36 /* sybfront.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6521F243144E6D8D00CBCC36 /* tds_configs.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F224144E6D8D00CBCC36 /* tds_configs.h */; };
 		6521F244144E6D8D00CBCC36 /* tds_sysdep_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F225144E6D8D00CBCC36 /* tds_sysdep_private.h */; };
 		6521F245144E6D8D00CBCC36 /* tds.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F226144E6D8D00CBCC36 /* tds.h */; };
@@ -99,14 +86,14 @@
 		6521F24E144E6D8D00CBCC36 /* tdsver.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 6521F22F144E6D8D00CBCC36 /* tdsver.h.in */; };
 		6521F251144E6DAB00CBCC36 /* readpassphrase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F250144E6DAB00CBCC36 /* readpassphrase.h */; };
 		6521F254144E6E1100CBCC36 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F252144E6E1100CBCC36 /* config.h */; };
-		6521F255144E6E1100CBCC36 /* tds_sysdep_public.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F253144E6E1100CBCC36 /* tds_sysdep_public.h */; };
+		6521F255144E6E1100CBCC36 /* tds_sysdep_public.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F253144E6E1100CBCC36 /* tds_sysdep_public.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6587B582144EA5DE0081A62B /* freetds_sysconfdir.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587B581144EA5DE0081A62B /* freetds_sysconfdir.h */; };
+		6587B585144EA6940081A62B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6587B584144EA6940081A62B /* libiconv.dylib */; };
+		6587B586144EBF310081A62B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6521F187144E6B1500CBCC36 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6521F17F144E6B1500CBCC36 /* FreeTDS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FreeTDS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6521F182144E6B1500CBCC36 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		6521F185144E6B1500CBCC36 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		6521F186144E6B1500CBCC36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6521F187144E6B1500CBCC36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6521F18A144E6B1500CBCC36 /* FreeTDS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FreeTDS-Info.plist"; sourceTree = "<group>"; };
 		6521F18C144E6B1500CBCC36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -147,18 +134,6 @@
 		6521F1B8144E6CC100CBCC36 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = src/freetds/src/tds/util.c; sourceTree = "<group>"; };
 		6521F1B9144E6CC100CBCC36 /* vstrbuild.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vstrbuild.c; path = src/freetds/src/tds/vstrbuild.c; sourceTree = "<group>"; };
 		6521F1BA144E6CC100CBCC36 /* write.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = write.c; path = src/freetds/src/tds/write.c; sourceTree = "<group>"; };
-		6521F1E0144E6D0400CBCC36 /* asprintf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = asprintf.c; path = src/freetds/src/replacements/asprintf.c; sourceTree = "<group>"; };
-		6521F1E1144E6D0400CBCC36 /* atoll.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = atoll.c; path = src/freetds/src/replacements/atoll.c; sourceTree = "<group>"; };
-		6521F1E2144E6D0400CBCC36 /* basename.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = basename.c; path = src/freetds/src/replacements/basename.c; sourceTree = "<group>"; };
-		6521F1E3144E6D0400CBCC36 /* fakepoll.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fakepoll.c; path = src/freetds/src/replacements/fakepoll.c; sourceTree = "<group>"; };
-		6521F1E4144E6D0400CBCC36 /* getopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = getopt.c; path = src/freetds/src/replacements/getopt.c; sourceTree = "<group>"; };
-		6521F1E5144E6D0400CBCC36 /* gettimeofday.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gettimeofday.c; path = src/freetds/src/replacements/gettimeofday.c; sourceTree = "<group>"; };
-		6521F1E6144E6D0400CBCC36 /* iconv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = iconv.c; path = src/freetds/src/replacements/iconv.c; sourceTree = "<group>"; };
-		6521F1E7144E6D0400CBCC36 /* readpassphrase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = readpassphrase.c; path = src/freetds/src/replacements/readpassphrase.c; sourceTree = "<group>"; };
-		6521F1E8144E6D0400CBCC36 /* strlcat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = strlcat.c; path = src/freetds/src/replacements/strlcat.c; sourceTree = "<group>"; };
-		6521F1E9144E6D0400CBCC36 /* strlcpy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = strlcpy.c; path = src/freetds/src/replacements/strlcpy.c; sourceTree = "<group>"; };
-		6521F1EA144E6D0400CBCC36 /* strtok_r.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = strtok_r.c; path = src/freetds/src/replacements/strtok_r.c; sourceTree = "<group>"; };
-		6521F1EB144E6D0400CBCC36 /* vasprintf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vasprintf.c; path = src/freetds/src/replacements/vasprintf.c; sourceTree = "<group>"; };
 		6521F1F9144E6D2600CBCC36 /* bcp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bcp.c; path = src/freetds/src/dblib/bcp.c; sourceTree = "<group>"; };
 		6521F1FA144E6D2600CBCC36 /* buffering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = buffering.h; path = src/freetds/src/dblib/buffering.h; sourceTree = "<group>"; };
 		6521F1FB144E6D2600CBCC36 /* dblib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dblib.c; path = src/freetds/src/dblib/dblib.c; sourceTree = "<group>"; };
@@ -203,6 +178,8 @@
 		6521F250144E6DAB00CBCC36 /* readpassphrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = readpassphrase.h; path = src/freetds/include/replacements/readpassphrase.h; sourceTree = "<group>"; };
 		6521F252144E6E1100CBCC36 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = src/freetds/include/config.h; sourceTree = "<group>"; };
 		6521F253144E6E1100CBCC36 /* tds_sysdep_public.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tds_sysdep_public.h; path = src/freetds/include/tds_sysdep_public.h; sourceTree = "<group>"; };
+		6587B581144EA5DE0081A62B /* freetds_sysconfdir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = freetds_sysconfdir.h; path = src/freetds/win32/freetds_sysconfdir.h; sourceTree = "<group>"; };
+		6587B584144EA6940081A62B /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +187,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6521F183144E6B1500CBCC36 /* Cocoa.framework in Frameworks */,
+				6587B586144EBF310081A62B /* Foundation.framework in Frameworks */,
+				6587B585144EA6940081A62B /* libiconv.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +216,8 @@
 		6521F181144E6B1500CBCC36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6521F182144E6B1500CBCC36 /* Cocoa.framework */,
+				6521F187144E6B1500CBCC36 /* Foundation.framework */,
+				6587B584144EA6940081A62B /* libiconv.dylib */,
 				6521F184144E6B1500CBCC36 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -247,9 +226,6 @@
 		6521F184144E6B1500CBCC36 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6521F185144E6B1500CBCC36 /* AppKit.framework */,
-				6521F186144E6B1500CBCC36 /* CoreData.framework */,
-				6521F187144E6B1500CBCC36 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -280,7 +256,6 @@
 				6521F210144E6D6600CBCC36 /* includes */,
 				6521F207144E6D5000CBCC36 /* ctlib */,
 				6521F1F8144E6D1200CBCC36 /* dblib */,
-				6521F1DF144E6CEC00CBCC36 /* replacements */,
 				6521F1DE144E6CD600CBCC36 /* tds */,
 			);
 			name = "Library Source";
@@ -327,25 +302,6 @@
 			name = tds;
 			sourceTree = "<group>";
 		};
-		6521F1DF144E6CEC00CBCC36 /* replacements */ = {
-			isa = PBXGroup;
-			children = (
-				6521F1E0144E6D0400CBCC36 /* asprintf.c */,
-				6521F1E1144E6D0400CBCC36 /* atoll.c */,
-				6521F1E2144E6D0400CBCC36 /* basename.c */,
-				6521F1E3144E6D0400CBCC36 /* fakepoll.c */,
-				6521F1E4144E6D0400CBCC36 /* getopt.c */,
-				6521F1E5144E6D0400CBCC36 /* gettimeofday.c */,
-				6521F1E6144E6D0400CBCC36 /* iconv.c */,
-				6521F1E7144E6D0400CBCC36 /* readpassphrase.c */,
-				6521F1E8144E6D0400CBCC36 /* strlcat.c */,
-				6521F1E9144E6D0400CBCC36 /* strlcpy.c */,
-				6521F1EA144E6D0400CBCC36 /* strtok_r.c */,
-				6521F1EB144E6D0400CBCC36 /* vasprintf.c */,
-			);
-			name = replacements;
-			sourceTree = "<group>";
-		};
 		6521F1F8144E6D1200CBCC36 /* dblib */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +330,7 @@
 		6521F210144E6D6600CBCC36 /* includes */ = {
 			isa = PBXGroup;
 			children = (
+				6587B581144EA5DE0081A62B /* freetds_sysconfdir.h */,
 				6521F252144E6E1100CBCC36 /* config.h */,
 				6521F253144E6E1100CBCC36 /* tds_sysdep_public.h */,
 				6521F24F144E6D9900CBCC36 /* replacements */,
@@ -426,6 +383,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6521F230144E6D8D00CBCC36 /* bkpublic.h in Headers */,
+				6521F232144E6D8D00CBCC36 /* cspublic.h in Headers */,
+				6521F233144E6D8D00CBCC36 /* cstypes.h in Headers */,
+				6521F235144E6D8D00CBCC36 /* ctpublic.h in Headers */,
+				6521F23E144E6D8D00CBCC36 /* sqldb.h in Headers */,
+				6521F23F144E6D8D00CBCC36 /* sqlfront.h in Headers */,
+				6521F240144E6D8D00CBCC36 /* sybdb.h in Headers */,
+				6521F242144E6D8D00CBCC36 /* sybfront.h in Headers */,
+				6521F255144E6E1100CBCC36 /* tds_sysdep_public.h in Headers */,
 				6521F1C1144E6CC100CBCC36 /* encodings.h in Headers */,
 				6521F1C2144E6CC100CBCC36 /* enum_cap.h in Headers */,
 				6521F1CE144E6CC100CBCC36 /* num_limits.h in Headers */,
@@ -433,11 +399,7 @@
 				6521F1D6144E6CC100CBCC36 /* tds_types.h in Headers */,
 				6521F1D7144E6CC100CBCC36 /* tds_willconvert.h in Headers */,
 				6521F201144E6D2600CBCC36 /* buffering.h in Headers */,
-				6521F230144E6D8D00CBCC36 /* bkpublic.h in Headers */,
-				6521F232144E6D8D00CBCC36 /* cspublic.h in Headers */,
-				6521F233144E6D8D00CBCC36 /* cstypes.h in Headers */,
 				6521F234144E6D8D00CBCC36 /* ctlib.h in Headers */,
-				6521F235144E6D8D00CBCC36 /* ctpublic.h in Headers */,
 				6521F236144E6D8D00CBCC36 /* dblib.h in Headers */,
 				6521F237144E6D8D00CBCC36 /* des.h in Headers */,
 				6521F238144E6D8D00CBCC36 /* fakepoll.h in Headers */,
@@ -446,11 +408,7 @@
 				6521F23B144E6D8D00CBCC36 /* md5.h in Headers */,
 				6521F23C144E6D8D00CBCC36 /* odbcss.h in Headers */,
 				6521F23D144E6D8D00CBCC36 /* replacements.h in Headers */,
-				6521F23E144E6D8D00CBCC36 /* sqldb.h in Headers */,
-				6521F23F144E6D8D00CBCC36 /* sqlfront.h in Headers */,
-				6521F240144E6D8D00CBCC36 /* sybdb.h in Headers */,
 				6521F241144E6D8D00CBCC36 /* syberror.h in Headers */,
-				6521F242144E6D8D00CBCC36 /* sybfront.h in Headers */,
 				6521F243144E6D8D00CBCC36 /* tds_configs.h in Headers */,
 				6521F244144E6D8D00CBCC36 /* tds_sysdep_private.h in Headers */,
 				6521F245144E6D8D00CBCC36 /* tds.h in Headers */,
@@ -464,7 +422,7 @@
 				6521F24D144E6D8D00CBCC36 /* tdsver.h in Headers */,
 				6521F251144E6DAB00CBCC36 /* readpassphrase.h in Headers */,
 				6521F254144E6E1100CBCC36 /* config.h in Headers */,
-				6521F255144E6E1100CBCC36 /* tds_sysdep_public.h in Headers */,
+				6587B582144EA5DE0081A62B /* freetds_sysconfdir.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,18 +518,6 @@
 				6521F1DB144E6CC100CBCC36 /* util.c in Sources */,
 				6521F1DC144E6CC100CBCC36 /* vstrbuild.c in Sources */,
 				6521F1DD144E6CC100CBCC36 /* write.c in Sources */,
-				6521F1EC144E6D0400CBCC36 /* asprintf.c in Sources */,
-				6521F1ED144E6D0400CBCC36 /* atoll.c in Sources */,
-				6521F1EE144E6D0400CBCC36 /* basename.c in Sources */,
-				6521F1EF144E6D0400CBCC36 /* fakepoll.c in Sources */,
-				6521F1F0144E6D0400CBCC36 /* getopt.c in Sources */,
-				6521F1F1144E6D0400CBCC36 /* gettimeofday.c in Sources */,
-				6521F1F2144E6D0400CBCC36 /* iconv.c in Sources */,
-				6521F1F3144E6D0400CBCC36 /* readpassphrase.c in Sources */,
-				6521F1F4144E6D0400CBCC36 /* strlcat.c in Sources */,
-				6521F1F5144E6D0400CBCC36 /* strlcpy.c in Sources */,
-				6521F1F6144E6D0400CBCC36 /* strtok_r.c in Sources */,
-				6521F1F7144E6D0400CBCC36 /* vasprintf.c in Sources */,
 				6521F200144E6D2600CBCC36 /* bcp.c in Sources */,
 				6521F202144E6D2600CBCC36 /* dblib.c in Sources */,
 				6521F203144E6D2600CBCC36 /* dbopen.c in Sources */,
@@ -701,6 +647,7 @@
 				6521F196144E6B1500CBCC36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
