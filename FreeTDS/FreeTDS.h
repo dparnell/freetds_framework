@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <FreeTDS/sybfront.h>
 #import <FreeTDS/sybdb.h>
+#import <FreeTDS/FreeTDSResultSet.h>
 
 const extern NSString* FREETDS_SERVER;
 const extern NSString* FREETDS_USER;
 const extern NSString* FREETDS_PASS;
 const extern NSString* FREETDS_DATABASE;
+const extern NSString* FREETDS_APPLICATION;
 
 const extern NSString* FREETDS_OS_ERROR;
 const extern NSString* FREETDS_OS_CODE;
@@ -25,22 +27,29 @@ const extern NSString* FREETDS_SEVERITY;
 
 @protocol FreeTDSDelegate <NSObject>
 
-- (int) handleMessage:(NSString*) message from:(FreeTDS*)free_tds;
+- (int) handleMessage:(NSDictionary*) message withSeverity:(int)severity from:(FreeTDS*)free_tds;
 
 @end
 
 @interface FreeTDS : NSObject {
 @private
+    id <FreeTDSDelegate> delegate;
+    NSException* to_throw;
+    
     LOGINREC* login;
     DBPROCESS* process;
-
-    NSException* to_throw;
+    BOOL timing_out;
+    BOOL dbsqlok_sent;
+    BOOL dbcancel_sent;    
 }
 
 + (FreeTDS*) connectionWithDictionary:(NSDictionary*)dictionary;
-- (id) initWithDictionary:(NSDictionary*)dictionary;
+- (void) loginWithDictionary:(NSDictionary*)dictionary;
+
+- (FreeTDSResultSet*) executeQuery:(NSString*) sql withParameters:(NSDictionary*)parameters;
 
 @property (readonly) LOGINREC* login;
 @property (readonly) DBPROCESS* process;
+@property (retain) id <FreeTDSDelegate> delegate;
 
 @end

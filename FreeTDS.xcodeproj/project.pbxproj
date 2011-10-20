@@ -90,6 +90,9 @@
 		6587B582144EA5DE0081A62B /* freetds_sysconfdir.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587B581144EA5DE0081A62B /* freetds_sysconfdir.h */; };
 		6587B585144EA6940081A62B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6587B584144EA6940081A62B /* libiconv.dylib */; };
 		6587B586144EBF310081A62B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6521F187144E6B1500CBCC36 /* Foundation.framework */; };
+		6587B6051450B4C40081A62B /* FreeTDSResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587B6031450B4C40081A62B /* FreeTDSResultSet.m */; };
+		6587B6071450B5AE0081A62B /* FreeTDSResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587B6021450B4C40081A62B /* FreeTDSResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6587B6081450B5C40081A62B /* FreeTDS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F18F144E6B1500CBCC36 /* FreeTDS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +183,8 @@
 		6521F253144E6E1100CBCC36 /* tds_sysdep_public.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tds_sysdep_public.h; path = src/freetds/include/tds_sysdep_public.h; sourceTree = "<group>"; };
 		6587B581144EA5DE0081A62B /* freetds_sysconfdir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = freetds_sysconfdir.h; path = src/freetds/win32/freetds_sysconfdir.h; sourceTree = "<group>"; };
 		6587B584144EA6940081A62B /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		6587B6021450B4C40081A62B /* FreeTDSResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTDSResultSet.h; sourceTree = "<group>"; };
+		6587B6031450B4C40081A62B /* FreeTDSResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTDSResultSet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +240,8 @@
 			children = (
 				6521F18F144E6B1500CBCC36 /* FreeTDS.h */,
 				6521F190144E6B1500CBCC36 /* FreeTDS.m */,
+				6587B6021450B4C40081A62B /* FreeTDSResultSet.h */,
+				6587B6031450B4C40081A62B /* FreeTDSResultSet.m */,
 				6521F189144E6B1500CBCC36 /* Supporting Files */,
 			);
 			path = FreeTDS;
@@ -383,6 +390,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6587B6081450B5C40081A62B /* FreeTDS.h in Headers */,
+				6587B6071450B5AE0081A62B /* FreeTDSResultSet.h in Headers */,
 				6521F230144E6D8D00CBCC36 /* bkpublic.h in Headers */,
 				6521F232144E6D8D00CBCC36 /* cspublic.h in Headers */,
 				6521F233144E6D8D00CBCC36 /* cstypes.h in Headers */,
@@ -528,6 +537,7 @@
 				6521F20D144E6D5F00CBCC36 /* cs.c in Sources */,
 				6521F20E144E6D5F00CBCC36 /* ct.c in Sources */,
 				6521F20F144E6D5F00CBCC36 /* ctutil.c in Sources */,
+				6587B6051450B4C40081A62B /* FreeTDSResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
