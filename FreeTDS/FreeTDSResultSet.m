@@ -23,6 +23,8 @@
     
     if(self) {
         free_tds = connection;
+        dbsqlok_sent = NO;
+        dbresults_sent = NO;
     }
     
     return self;
@@ -30,26 +32,60 @@
 
 
 #pragma mark -
-#pragma mark Methods
+#pragma mark Internal methods
+
+- (RETCODE) sendOK {
+    if(!dbsqlok_sent) {
+        dbsqlok_sent = YES;
+        dbsqlok_result = dbsqlok(free_tds.process);
+        [free_tds checkForError];
+    }
+    
+    return dbsqlok_result;
+}
+
+- (RETCODE) sendResults {
+    if(!dbresults_sent) {
+        dbresults_sent = YES;
+        dbresults_result = dbresults(free_tds.process);
+    }
+    
+    return dbresults_result;
+}
+
+#pragma mark -
+#pragma mark Published Methods
 
 - (FreeTDSResultSetMetadata*) getMetadata {
     return [[[FreeTDSResultSetMetadata alloc] initWithFreeTDS: free_tds] autorelease];
 }
 
+- (BOOL) hasResults {
+    return [self sendResults] == SUCCEED;
+}
+
 - (BOOL) next {
-    BOOL result = dbnextrow(free_tds.process) != NO_MORE_ROWS;
+    if([self sendOK] == SUCCEED && [self sendResults] == SUCCEED) {    
+        BOOL result = dbnextrow(free_tds.process) != NO_MORE_ROWS;        
+        [free_tds checkForError];
+        
+        return result;
+    }
     
-    [free_tds checkForError];
-    
-    return result;
+    dbresults_sent = NO;
+    return NO;
 }
 
 - (void) close {
+    [self sendOK];
+    
     dbcancel([free_tds process]);
     [free_tds checkForError];
 }
 
 - (id) getObject:(int) index {
+    [self sendOK];
+    
     int col = index + 1;
     DBPROCESS* process = free_tds.process;
     

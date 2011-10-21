@@ -16,11 +16,17 @@
 @interface FreeTDSResultSet : NSObject {
 @private
     __weak FreeTDS* free_tds;
+    BOOL dbsqlok_sent;
+    RETCODE dbsqlok_result;
+    BOOL dbresults_sent;
+    RETCODE dbresults_result;
 }
 
 - (id) initWithFreeTDS:(FreeTDS*)connection;
 
 - (FreeTDSResultSetMetadata*) getMetadata;
+
+- (BOOL) hasResults;
 
 - (BOOL) next;
 - (void) close;
