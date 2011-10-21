@@ -1,5 +1,5 @@
 //
-//  FreeTDSResultSet.h
+//  FreeTDSResultSetMetadata.h
 //  FreeTDS
 //
 //  Created by Daniel Parnell on 21/10/11.
@@ -11,19 +11,17 @@
 #import <FreeTDS/sybdb.h>
 
 @class FreeTDS;
-@class FreeTDSResultSetMetadata;
 
-@interface FreeTDSResultSet : NSObject {
+@interface FreeTDSResultSetMetadata : NSObject {
 @private
     __weak FreeTDS* free_tds;
 }
 
 - (id) initWithFreeTDS:(FreeTDS*)connection;
 
-- (FreeTDSResultSetMetadata*) getMetadata;
-
-- (BOOL) next;
-- (void) close;
-- (id) getObject:(int)index;
+- (int) getColumnCount;
+- (NSString*) getColumnName:(int)index;
+- (int) getColumnType:(int)index;
+- (NSString*) getColumnTypeName:(int)index;
 
 @end

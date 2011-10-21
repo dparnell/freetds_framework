@@ -34,12 +34,6 @@ const NSLock* login_lock = nil;
 
 @end
 
-@interface FreeTDSResultSet (Private)
-
-- (id) initWithProcess:(DBPROCESS*)process;
-
-@end
-
 @implementation FreeTDS
 
 @synthesize login, process, delegate;
@@ -208,6 +202,8 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
     }
     
     if(process) {
+        dbsetuserdata(process, (void*)self);
+        
         if(database) {
             dbuse(process, [database UTF8String]);
             [self checkForError];
@@ -227,7 +223,7 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
     }
     [self checkForError];
     
-    return [[[FreeTDSResultSet alloc] initWithProcess: process] autorelease];
+    return [[[FreeTDSResultSet alloc] initWithFreeTDS: self] autorelease];
 }
 
 #pragma mark -
