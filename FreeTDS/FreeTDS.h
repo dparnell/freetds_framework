@@ -50,6 +50,7 @@ const extern NSString* FREETDS_SEVERITY;
 - (void) loginWithDictionary:(NSDictionary*)dictionary;
 
 - (FreeTDSResultSet*) executeQuery:(NSString*) sql withParameters:(NSDictionary*)parameters;
+- (void) close;
 
 @property (readonly) LOGINREC* login;
 @property (readonly) DBPROCESS* process;

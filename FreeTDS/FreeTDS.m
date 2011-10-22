@@ -60,7 +60,7 @@ static id string_or_null(const char* s) {
 static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dberrstr, char *oserrstr) {
     FreeTDS* free_tds = (FreeTDS*)dbgetuserdata(dbproc);
     
-    NSLog(@"err_handler: %p %d %d %d %s %s", dbproc, severity, dberr, oserr, dberrstr, oserrstr);
+//    NSLog(@"err_handler: %p %d %d %d %s %s", dbproc, severity, dberr, oserr, dberrstr, oserrstr);
     
     int return_value = INT_CONTINUE;
     int cancel = 0;
@@ -135,7 +135,7 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
                           [NSNumber numberWithInt: line], FREETDS_LINE,
                           [NSNumber numberWithInt: severity], FREETDS_SEVERITY,
                           nil];
-    NSLog(@"info = %@", info);
+//    NSLog(@"info = %@", info);
     
     if(severity>10) {
         NSException* ex = [NSException exceptionWithName: @"FreeTDS" 
@@ -171,7 +171,7 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 }
 
 - (void)dealloc {
-    // @TODO: add code to clean up the DBPROCESS and LOGINREC structures
+    [self close];
     
     [super dealloc];
 }
@@ -244,6 +244,17 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
         }
     } else {
         @throw [NSException exceptionWithName: @"FreeTDS" reason: NSLocalizedString(@"Unknown login error", @"Unknown login error") userInfo: nil];
+    }
+}
+
+- (void) close {
+    if(login) {
+        dbloginfree(login);
+        login = nil;
+    }
+    if(process) {
+        dbclose(process);
+        process = nil;
     }
 }
 
