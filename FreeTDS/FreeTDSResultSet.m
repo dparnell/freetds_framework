@@ -48,6 +48,7 @@
     if(!dbresults_sent) {
         dbresults_sent = YES;
         dbresults_result = dbresults(free_tds.process);
+        [free_tds checkForError];
     }
     
     return dbresults_result;
@@ -57,6 +58,9 @@
 #pragma mark Published Methods
 
 - (FreeTDSResultSetMetadata*) getMetadata {
+    [self sendOK];
+    [self sendResults];
+    
     return [[[FreeTDSResultSetMetadata alloc] initWithFreeTDS: free_tds] autorelease];
 }
 
