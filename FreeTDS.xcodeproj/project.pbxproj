@@ -95,6 +95,7 @@
 		6587B6081450B5C40081A62B /* FreeTDS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F18F144E6B1500CBCC36 /* FreeTDS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6587B60B1451727A0081A62B /* FreeTDSResultSetMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587B609145172790081A62B /* FreeTDSResultSetMetadata.h */; };
 		6587B60C1451727A0081A62B /* FreeTDSResultSetMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587B60A145172790081A62B /* FreeTDSResultSetMetadata.m */; };
+		6587B60F14521A300081A62B /* freetds.conf in Resources */ = {isa = PBXBuildFile; fileRef = 6587B60E14521A300081A62B /* freetds.conf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -189,6 +190,7 @@
 		6587B6031450B4C40081A62B /* FreeTDSResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTDSResultSet.m; sourceTree = "<group>"; };
 		6587B609145172790081A62B /* FreeTDSResultSetMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTDSResultSetMetadata.h; sourceTree = "<group>"; };
 		6587B60A145172790081A62B /* FreeTDSResultSetMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTDSResultSetMetadata.m; sourceTree = "<group>"; };
+		6587B60E14521A300081A62B /* freetds.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = freetds.conf; path = src/freetds/freetds.conf; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 		6521F189144E6B1500CBCC36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6587B60E14521A300081A62B /* freetds.conf */,
 				6521F18A144E6B1500CBCC36 /* FreeTDS-Info.plist */,
 				6521F18B144E6B1500CBCC36 /* InfoPlist.strings */,
 				6521F18E144E6B1500CBCC36 /* FreeTDS-Prefix.pch */,
@@ -495,6 +498,7 @@
 			files = (
 				6521F18D144E6B1500CBCC36 /* InfoPlist.strings in Resources */,
 				6521F24E144E6D8D00CBCC36 /* tdsver.h.in in Resources */,
+				6587B60F14521A300081A62B /* freetds.conf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,10 +12,13 @@
 #import <FreeTDS/FreeTDSResultSet.h>
 
 const extern NSString* FREETDS_SERVER;
+const extern NSString* FREETDS_HOST;
+const extern NSString* FREETDS_PORT;
 const extern NSString* FREETDS_USER;
 const extern NSString* FREETDS_PASS;
 const extern NSString* FREETDS_DATABASE;
 const extern NSString* FREETDS_APPLICATION;
+const extern NSString* FREETDS_PROTOCOL_VERSION;
 
 const extern NSString* FREETDS_OS_ERROR;
 const extern NSString* FREETDS_OS_CODE;
