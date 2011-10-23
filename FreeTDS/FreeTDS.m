@@ -115,7 +115,9 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
                                                        nil]];
     
     if(free_tds) {
-        free_tds->to_throw = ex;
+        if(free_tds->to_throw == nil) {
+            free_tds->to_throw = ex;
+        }
     } else {
         login_exception = ex;
     }
