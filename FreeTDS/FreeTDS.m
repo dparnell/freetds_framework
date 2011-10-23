@@ -62,7 +62,7 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
     
 //    NSLog(@"err_handler: %p %d %d %d %s %s", dbproc, severity, dberr, oserr, dberrstr, oserrstr);
     
-    int return_value = INT_CONTINUE;
+    int return_value = INT_CANCEL;
     int cancel = 0;
     switch(dberr) {
         case 100: /* SYBEVERDOWN */
@@ -113,6 +113,10 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
                                                        [NSNumber numberWithInt: dberr], FREETDS_DB_CODE,
                                                        [NSNumber numberWithInt: severity], FREETDS_SEVERITY,
                                                        nil]];
+    
+    if(cancel) {
+        dbcancel(dbproc);
+    }
     
     if(free_tds) {
         if(free_tds->to_throw == nil) {
