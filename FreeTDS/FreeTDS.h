@@ -25,6 +25,11 @@ const extern NSString* FREETDS_OS_CODE;
 const extern NSString* FREETDS_DB_ERROR;
 const extern NSString* FREETDS_DB_CODE;
 const extern NSString* FREETDS_SEVERITY;
+const extern NSString* FREETDS_MESSAGE;
+const extern NSString* FREETDS_MESSAGE_NUMBER;
+const extern NSString* FREETDS_MESSAGE_STATE;
+const extern NSString* FREETDS_PROC_NAME;
+const extern NSString* FREETDS_LINE;
 
 @class FreeTDS;
 

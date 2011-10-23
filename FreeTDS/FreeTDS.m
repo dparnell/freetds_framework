@@ -149,7 +149,7 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
         }        
     } else {
         if (free_tds && free_tds->delegate) {
-            [free_tds->delegate handleMessage: info withSeverity: severity from: free_tds];
+            return [free_tds->delegate handleMessage: info withSeverity: severity from: free_tds];
         }
     }
     return  0;
