@@ -61,7 +61,7 @@
     [self sendOK];
     [self sendResults];
     
-    return [[[FreeTDSResultSetMetadata alloc] initWithFreeTDS: free_tds] autorelease];
+    return [[FreeTDSResultSetMetadata alloc] initWithFreeTDS: free_tds];
 }
 
 - (BOOL) hasResults {

@@ -59,6 +59,6 @@ const extern NSString* FREETDS_LINE;
 
 @property (readonly) LOGINREC* login;
 @property (readonly) DBPROCESS* process;
-@property (retain) id <FreeTDSDelegate> delegate;
+@property (strong) id <FreeTDSDelegate> delegate;
 
 @end

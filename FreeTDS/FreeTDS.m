@@ -58,7 +58,7 @@ static id string_or_null(const char* s) {
 }
 
 static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dberrstr, char *oserrstr) {
-    FreeTDS* free_tds = (FreeTDS*)dbgetuserdata(dbproc);
+    FreeTDS* free_tds = (__bridge FreeTDS*)(void*)dbgetuserdata(dbproc);
     
 //    NSLog(@"err_handler: %p %d %d %d %s %s", dbproc, severity, dberr, oserr, dberrstr, oserrstr);
     
@@ -130,7 +130,7 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
 }
 
 static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname, char *procname, int line) {
-    FreeTDS* free_tds = (FreeTDS*)dbgetuserdata(dbproc);
+    FreeTDS* free_tds = (__bridge FreeTDS*)(void*)dbgetuserdata(dbproc);
     
     NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: 
                           string_or_null(msgtext), FREETDS_MESSAGE,
@@ -166,11 +166,11 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 #pragma mark Init and dealloc
 
 + (void) initialize {
-    login_lock = [[NSLock new] retain];
+    login_lock = [NSLock new];
 }
 
 + (FreeTDS*) connectionWithDictionary:(NSDictionary*)dictionary {
-    FreeTDS* result = [[FreeTDS new] autorelease];
+    FreeTDS* result = [FreeTDS new];
     [result loginWithDictionary: dictionary];
     
     return result;
@@ -179,7 +179,6 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 - (void)dealloc {
     [self close];
     
-    [super dealloc];
 }
 
 
@@ -242,7 +241,7 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
     }
     
     if(process) {
-        dbsetuserdata(process, (void*)self);
+        dbsetuserdata(process, (__bridge void*)self);
         
         if(database) {
             dbuse(process, [database UTF8String]);
@@ -274,7 +273,7 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
     }
     [self checkForError];
     
-    return [[[FreeTDSResultSet alloc] initWithFreeTDS: self] autorelease];
+    return [[FreeTDSResultSet alloc] initWithFreeTDS: self];
 }
 
 #pragma mark -
