@@ -93,7 +93,7 @@
 		6587B6051450B4C40081A62B /* FreeTDSResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587B6031450B4C40081A62B /* FreeTDSResultSet.m */; };
 		6587B6071450B5AE0081A62B /* FreeTDSResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587B6021450B4C40081A62B /* FreeTDSResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6587B6081450B5C40081A62B /* FreeTDS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6521F18F144E6B1500CBCC36 /* FreeTDS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6587B60B1451727A0081A62B /* FreeTDSResultSetMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587B609145172790081A62B /* FreeTDSResultSetMetadata.h */; };
+		6587B60B1451727A0081A62B /* FreeTDSResultSetMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587B609145172790081A62B /* FreeTDSResultSetMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6587B60C1451727A0081A62B /* FreeTDSResultSetMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587B60A145172790081A62B /* FreeTDSResultSetMetadata.m */; };
 		6587B60F14521A300081A62B /* freetds.conf in Resources */ = {isa = PBXBuildFile; fileRef = 6587B60E14521A300081A62B /* freetds.conf */; };
 /* End PBXBuildFile section */
@@ -401,6 +401,7 @@
 			files = (
 				6587B6081450B5C40081A62B /* FreeTDS.h in Headers */,
 				6587B6071450B5AE0081A62B /* FreeTDSResultSet.h in Headers */,
+				6587B60B1451727A0081A62B /* FreeTDSResultSetMetadata.h in Headers */,
 				6521F230144E6D8D00CBCC36 /* bkpublic.h in Headers */,
 				6521F232144E6D8D00CBCC36 /* cspublic.h in Headers */,
 				6521F233144E6D8D00CBCC36 /* cstypes.h in Headers */,
@@ -441,7 +442,6 @@
 				6521F251144E6DAB00CBCC36 /* readpassphrase.h in Headers */,
 				6521F254144E6E1100CBCC36 /* config.h in Headers */,
 				6587B582144EA5DE0081A62B /* freetds_sysconfdir.h in Headers */,
-				6587B60B1451727A0081A62B /* FreeTDSResultSetMetadata.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
