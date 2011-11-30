@@ -258,14 +258,13 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 }
 
 - (FreeTDSResultSet*) executeQuery:(NSString*) sql withParameters:(NSDictionary*)parameters andError:(NSError **)error{
-    FreeTDSResultSet* result;
+    FreeTDSResultSet* result = nil;
     
     [self reset];
     if(dbcmd(process, [sql UTF8String]) == SUCCEED) {    
-        dbsqlsend(process);
-        result = [[FreeTDSResultSet alloc] initWithFreeTDS: self];
-    } else {
-        result = nil;
+        if(dbsqlsend(process) == SUCCEED) {
+            result = [[FreeTDSResultSet alloc] initWithFreeTDS: self];
+        }
     }
     [self checkForError:error];
     
