@@ -11,7 +11,7 @@
 
 @interface FreeTDS (Private)
 
-- (void) checkForError;
+- (void) checkForError:(NSError**)error;
 
 @end
 
@@ -31,22 +31,22 @@
     return dbnumcols(free_tds.process);
 }
 
-- (NSString*) getColumnName:(int)index {
+- (NSString*) getColumnName:(int)index error:(NSError **)error{
     char *colname = dbcolname(free_tds.process, index+1);
+    [free_tds checkForError: error];
     
     return [NSString stringWithCString: colname encoding: NSUTF8StringEncoding];
 }
 
-- (int) getColumnType:(int)index {
+- (int) getColumnType:(int)index error:(NSError**)error {
     int result = dbcoltype(free_tds.process, index + 1);
-    [free_tds checkForError];
+    [free_tds checkForError: error];
     
     return result;
 }
 
-- (NSString*) getColumnTypeName:(int)index {
-    const char* typename = dbprtype([self getColumnType: index]);
-    [free_tds checkForError];
+- (NSString*) getColumnTypeName:(int)index error:(NSError **)error {
+    const char* typename = dbprtype([self getColumnType: index error: error]);
     
     return [NSString stringWithCString: typename encoding: NSUTF8StringEncoding];
 }

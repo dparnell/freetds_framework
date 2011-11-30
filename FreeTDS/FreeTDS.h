@@ -42,7 +42,7 @@ const extern NSString* FREETDS_LINE;
 @interface FreeTDS : NSObject {
 @private
     id <FreeTDSDelegate> delegate;
-    NSException* to_throw;
+    NSError* last_error;
     
     LOGINREC* login;
     DBPROCESS* process;
@@ -51,10 +51,10 @@ const extern NSString* FREETDS_LINE;
     BOOL dbcancel_sent;    
 }
 
-+ (FreeTDS*) connectionWithDictionary:(NSDictionary*)dictionary;
-- (void) loginWithDictionary:(NSDictionary*)dictionary;
++ (FreeTDS*) connectionWithDictionary:(NSDictionary*)dictionary andError:(NSError**)error;
+- (void) loginWithDictionary:(NSDictionary*)dictionary andError:(NSError**)error;
 
-- (FreeTDSResultSet*) executeQuery:(NSString*) sql withParameters:(NSDictionary*)parameters;
+- (FreeTDSResultSet*) executeQuery:(NSString*) sql withParameters:(NSDictionary*)parameters andError: (NSError**)error;
 - (void) close;
 
 @property (readonly) LOGINREC* login;

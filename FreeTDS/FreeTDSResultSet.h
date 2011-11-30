@@ -24,12 +24,12 @@
 
 - (id) initWithFreeTDS:(FreeTDS*)connection;
 
-- (FreeTDSResultSetMetadata*) getMetadata;
+- (FreeTDSResultSetMetadata*) getMetadata:(NSError**)error;
 
-- (BOOL) hasResults;
+- (BOOL) hasResults:(NSError**)error;
 
-- (BOOL) next;
-- (void) close;
-- (id) getObject:(int)index;
+- (BOOL) next:(NSError**)error;
+- (void) close:(NSError**)error;
+- (id) getObject:(int)index error:(NSError**)error;
 
 @end

@@ -34,7 +34,7 @@ const NSLock* login_lock = nil;
 
 @interface FreeTDS (Private)
 
-- (void) checkForError;
+- (void) checkForError:(NSError**)error;
 - (void) reset;
 
 @end
@@ -47,7 +47,7 @@ const NSLock* login_lock = nil;
 #pragma mark -
 #pragma mark Error handlers
 
-static NSException* login_exception = nil;
+static __strong NSError* login_error = nil;
 
 static id string_or_null(const char* s) {
     if(s) {
@@ -104,9 +104,9 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
             break;
     }
     
-    NSException* ex = [NSException exceptionWithName: @"FreeTDS" 
-                                              reason: [NSString stringWithFormat: @"%d - %s", dberr, dberrstr] 
-                                            userInfo: [NSDictionary dictionaryWithObjectsAndKeys: 
+    NSError* er = [NSError errorWithDomain: [NSString stringWithCString: dberrstr encoding: NSUTF8StringEncoding]
+                                      code: dberr 
+                                  userInfo: [NSDictionary dictionaryWithObjectsAndKeys: 
                                                        string_or_null(oserrstr), FREETDS_OS_ERROR,
                                                        [NSNumber numberWithInt: oserr], FREETDS_OS_CODE,
                                                        string_or_null(dberrstr), FREETDS_DB_ERROR,
@@ -119,11 +119,11 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
     }
     
     if(free_tds) {
-        if(free_tds->to_throw == nil) {
-            free_tds->to_throw = ex;
+        if(free_tds->last_error == nil) {
+            free_tds->last_error = er;
         }
     } else {
-        login_exception = ex;
+        login_error = er;
     }
     
     return return_value;
@@ -144,14 +144,14 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 //    NSLog(@"info = %@", info);
     
     if(severity>10) {
-        NSException* ex = [NSException exceptionWithName: @"FreeTDS" 
-                                                  reason: [NSString stringWithFormat: @"%d - %s", msgno, msgtext] 
-                                                userInfo: info];
+        NSError* er = [NSError errorWithDomain: [NSString stringWithCString: msgtext encoding: NSUTF8StringEncoding] 
+                                          code: msgno 
+                                      userInfo: info];
         
         if(free_tds) {
-            free_tds->to_throw = ex;
+            free_tds->last_error = er;
         } else {
-            login_exception = ex;
+            login_error = er;
         }        
     } else {
         if (free_tds && free_tds->delegate) {
@@ -169,9 +169,9 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
     login_lock = [NSLock new];
 }
 
-+ (FreeTDS*) connectionWithDictionary:(NSDictionary*)dictionary {
++ (FreeTDS*) connectionWithDictionary:(NSDictionary*)dictionary andError:(NSError **)error {
     FreeTDS* result = [FreeTDS new];
-    [result loginWithDictionary: dictionary];
+    [result loginWithDictionary: dictionary andError: error];
     
     return result;
 }
@@ -185,7 +185,7 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 #pragma mark -
 
 
-- (void) loginWithDictionary:(NSDictionary*)dictionary {
+- (void) loginWithDictionary:(NSDictionary*)dictionary andError:(NSError**) error {
     NSString* user = [dictionary objectForKey: FREETDS_USER];
     NSString* password = [dictionary objectForKey: FREETDS_PASS];
     NSString* server = [dictionary objectForKey: FREETDS_SERVER];
@@ -227,17 +227,13 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
             server = [host stringByAppendingFormat: @":%d", [port intValue]];
         }
     }
-    
-    [login_lock lock];
-    @try {
-        login_exception = nil;
+        
+    @synchronized(login_lock) {
+        login_error = nil;
         process = dbopen(login, [server UTF8String]);
-        if(login_exception) {
-            @throw login_exception;
+        if(login_error && error) {
+            *error = login_error;
         }
-    } @finally {
-        login_exception = nil;
-        [login_lock unlock];
     }
     
     if(process) {
@@ -245,10 +241,8 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
         
         if(database) {
             dbuse(process, [database UTF8String]);
-            [self checkForError];
+            [self checkForError: error];
         }
-    } else {
-        @throw [NSException exceptionWithName: @"FreeTDS" reason: NSLocalizedString(@"Unknown login error", @"Unknown login error") userInfo: nil];
     }
 }
 
@@ -263,35 +257,33 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
     }
 }
 
-- (FreeTDSResultSet*) executeQuery:(NSString*) sql withParameters:(NSDictionary*)parameters {
+- (FreeTDSResultSet*) executeQuery:(NSString*) sql withParameters:(NSDictionary*)parameters andError:(NSError **)error{
+    FreeTDSResultSet* result;
+    
     [self reset];
-    dbcmd(process, [sql UTF8String]);
-    [self checkForError];
-    
-    if (dbsqlsend(process) == FAIL) {
-        @throw [NSException exceptionWithName: @"FreeTDS" reason: NSLocalizedString(@"dbsqlsend failed", @"dbsqlsend failed") userInfo: nil];
+    if(dbcmd(process, [sql UTF8String]) == SUCCEED) {    
+        dbsqlsend(process);
+        result = [[FreeTDSResultSet alloc] initWithFreeTDS: self];
+    } else {
+        result = nil;
     }
-    [self checkForError];
+    [self checkForError:error];
     
-    return [[FreeTDSResultSet alloc] initWithFreeTDS: self];
+    return result;    
 }
 
 #pragma mark -
 #pragma mark Private stuff
 
-- (void) checkForError {
-    if (to_throw) {
-        @try {
-            @throw to_throw;
-        }
-        @finally {
-            to_throw = nil;
-        }
+- (void) checkForError:(NSError**)error {
+    if (error) {
+        *error = last_error;
+        last_error = nil;
     }
 }
 
 - (void) reset {
-    to_throw = nil;
+    last_error = nil;
     timing_out = NO;
     dbsqlok_sent = NO;
     dbcancel_sent = NO;    

@@ -20,8 +20,8 @@
 - (id) initWithFreeTDS:(FreeTDS*)connection;
 
 - (int) getColumnCount;
-- (NSString*) getColumnName:(int)index;
-- (int) getColumnType:(int)index;
-- (NSString*) getColumnTypeName:(int)index;
+- (NSString*) getColumnName:(int)index error:(NSError**)error;
+- (int) getColumnType:(int)index error:(NSError**)error;
+- (NSString*) getColumnTypeName:(int)index error:(NSError**)error;
 
 @end
