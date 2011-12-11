@@ -69,6 +69,11 @@
     return  nil;
 }
 
+- (void) reset {
+    dbsqlok_sent = NO;
+    dbresults_sent = NO;
+}
+
 - (BOOL) hasResults:(NSError**)error {
     return [self sendResults: error] == SUCCEED;
 }

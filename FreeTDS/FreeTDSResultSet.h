@@ -26,6 +26,8 @@
 
 - (FreeTDSResultSetMetadata*) getMetadata:(NSError**)error;
 
+- (void) reset;
+
 - (BOOL) hasResults:(NSError**)error;
 
 - (BOOL) next:(NSError**)error;

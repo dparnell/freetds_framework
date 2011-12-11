@@ -41,7 +41,7 @@ const extern NSString* FREETDS_LINE;
 
 @interface FreeTDS : NSObject {
 @private
-    id <FreeTDSDelegate> delegate;
+    __unsafe_unretained id <FreeTDSDelegate> delegate;
     NSError* last_error;
     
     LOGINREC* login;
@@ -59,6 +59,6 @@ const extern NSString* FREETDS_LINE;
 
 @property (readonly) LOGINREC* login;
 @property (readonly) DBPROCESS* process;
-@property (strong) id <FreeTDSDelegate> delegate;
+@property (nonatomic, assign) id <FreeTDSDelegate> delegate;
 
 @end
