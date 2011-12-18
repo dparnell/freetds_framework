@@ -257,8 +257,34 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
     }
 }
 
+- (NSString*) quote:(id)value {
+    if(value == nil || [value isKindOfClass: [NSNull class]]) {
+        return @"NULL";
+    } else {
+        if([value isKindOfClass: [NSString class]]) {
+            return [NSString stringWithFormat: @"'%@'", [value stringByReplacingOccurrencesOfString: @"'" withString: @"''"]];
+        } else if([value isKindOfClass: [NSNumber class]]) {
+            return [value stringValue];
+        } else if([value isKindOfClass: [NSData class]]) {
+            NSString* hex = [[[value description] stringByReplacingOccurrencesOfString: @" " withString: @""] stringByTrimmingCharactersInSet: [NSCharacterSet symbolCharacterSet]];
+            return [NSString stringWithFormat: @"0x%@", hex];
+        } else if([value isKindOfClass: [NSDate class]]) {
+            return [value descriptionWithCalendarFormat: @"'%m-%d-%Y %H:%M%S'"];
+        }        
+    }
+    
+    @throw [NSException exceptionWithName: @"FreeTDS" reason: @"Unhandled value type" userInfo: [NSDictionary dictionaryWithObject: value forKey: @"value"]];
+}
+
 - (FreeTDSResultSet*) executeQuery:(NSString*) sql withParameters:(NSDictionary*)parameters andError:(NSError **)error{
     FreeTDSResultSet* result = nil;
+    
+    if(parameters) {
+        for(NSString* param in parameters) {
+            NSString* quoted_value = [self quote: [parameters objectForKey: param]];
+            sql = [sql stringByReplacingOccurrencesOfString: param withString: quoted_value];
+        }
+    }
     
     [self reset];
     if(dbcmd(process, [sql UTF8String]) == SUCCEED) {    
