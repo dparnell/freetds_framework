@@ -472,7 +472,7 @@
 		6521F175144E6B1500CBCC36 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 6521F178144E6B1500CBCC36 /* Build configuration list for PBXProject "FreeTDS" */;
 			compatibilityVersion = "Xcode 3.2";
