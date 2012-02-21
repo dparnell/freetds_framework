@@ -183,7 +183,7 @@
                 case SYBDATETIME: {
                     DBDATEREC date_rec;
                     dbdatecrack(process, &date_rec, (DBDATETIME *)data);
-                    int year  = date_rec.dateyear,
+                    int year  = date_rec.dateyear-1970,
                     month = date_rec.datemonth+1,
                     day   = date_rec.datedmonth,
                     hour  = date_rec.datehour,
