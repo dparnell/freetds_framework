@@ -34,7 +34,7 @@ const NSLock* login_lock = nil;
 
 @interface FreeTDS (Private)
 
-- (void) checkForError:(NSError**)error;
+- (BOOL) checkForError:(NSError**)error;
 - (void) reset;
 
 @end
@@ -77,9 +77,11 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
             return_value = INT_CANCEL;
             break;
         case SYBESEOF: {
-            if (free_tds && free_tds->timing_out)
+            if (free_tds && free_tds->timing_out) {
                 return_value = INT_TIMEOUT;
-            return INT_CANCEL;
+            } else {
+                return INT_CANCEL;
+            }
             break;
         }
         case SYBETIME: {
@@ -185,7 +187,7 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 #pragma mark -
 
 
-- (void) loginWithDictionary:(NSDictionary*)dictionary andError:(NSError**) error {
+- (BOOL) loginWithDictionary:(NSDictionary*)dictionary andError:(NSError**) error {
     NSString* user = [dictionary objectForKey: FREETDS_USER];
     NSString* password = [dictionary objectForKey: FREETDS_PASS];
     NSString* server = [dictionary objectForKey: FREETDS_SERVER];
@@ -241,9 +243,11 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
         
         if(database) {
             dbuse(process, [database UTF8String]);
-            [self checkForError: error];
+            return [self checkForError: error];
         }
     }
+    
+    return NO;
 }
 
 - (void) close {
@@ -300,11 +304,14 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 #pragma mark -
 #pragma mark Private stuff
 
-- (void) checkForError:(NSError**)error {
+- (BOOL) checkForError:(NSError**)error {
     if (error) {
         *error = last_error;
         last_error = nil;
+        return NO;
     }
+    
+    return YES;
 }
 
 - (void) reset {

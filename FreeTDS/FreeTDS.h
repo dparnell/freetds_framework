@@ -52,7 +52,7 @@ const extern NSString* FREETDS_LINE;
 }
 
 + (FreeTDS*) connectionWithDictionary:(NSDictionary*)dictionary andError:(NSError**)error;
-- (void) loginWithDictionary:(NSDictionary*)dictionary andError:(NSError**)error;
+- (BOOL) loginWithDictionary:(NSDictionary*)dictionary andError:(NSError**)error;
 
 - (FreeTDSResultSet*) executeQuery:(NSString*) sql withParameters:(NSDictionary*)parameters andError: (NSError**)error;
 - (void) close;

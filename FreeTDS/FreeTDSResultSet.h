@@ -31,7 +31,7 @@
 - (BOOL) hasResults:(NSError**)error;
 
 - (BOOL) next:(NSError**)error;
-- (void) close:(NSError**)error;
+- (BOOL) close:(NSError**)error;
 - (id) getObject:(int)index error:(NSError**)error;
 
 @end

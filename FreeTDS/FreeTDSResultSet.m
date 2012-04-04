@@ -12,7 +12,7 @@
 
 @interface FreeTDS (Private)
 
-- (void) checkForError:(NSError**)error;
+- (BOOL) checkForError:(NSError**)error;
 
 @end
 
@@ -92,11 +92,13 @@
     return NO;
 }
 
-- (void) close:(NSError**)error {
+- (BOOL) close:(NSError**)error {
     if([self sendOK: error] == SUCCEED) {    
         dbcancel([free_tds process]);
-        [free_tds checkForError: error];
+        return [free_tds checkForError: error];
     }
+    
+    return NO;
 }
 
 - (id) getObject:(int) index error:(NSError**) error{
@@ -117,6 +119,9 @@
         if (null_val) {
             result = [NSNull null];
         } else {
+            if(data == NULL) {
+                return [NSNull null];
+            }
             switch(coltype) {
                 case SYBINT1:
                     result = [NSNumber numberWithInt: *(DBTINYINT *)data];
@@ -178,7 +183,7 @@
                     DBDATETIME new_data;
                     dbconvert(process, coltype, data, data_len, SYBDATETIME, (BYTE *)&new_data, sizeof(new_data));            
                     data = (BYTE *)&new_data;
-                    data_len = sizeof(new_data);
+//                    data_len = sizeof(new_data);
                 }
                 case SYBDATETIME: {
                     DBDATEREC date_rec;
