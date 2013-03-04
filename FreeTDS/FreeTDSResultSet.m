@@ -9,6 +9,7 @@
 #import "FreeTDSResultSet.h"
 #import "FreeTDS.h"
 #import "FreeTDSResultSetMetadata.h"
+#import <time.h>
 
 @interface FreeTDS (Private)
 
@@ -188,16 +189,22 @@
                 case SYBDATETIME: {
                     DBDATEREC date_rec;
                     dbdatecrack(process, &date_rec, (DBDATETIME *)data);
-                    int year  = date_rec.dateyear-1970,
-                    month = date_rec.datemonth+1,
-                    day   = date_rec.datedmonth,
-                    hour  = date_rec.datehour,
-                    min   = date_rec.dateminute,
-                    sec   = date_rec.datesecond,
-                    msec  = date_rec.datemsecond;
-                    if (year+month+day+hour+min+sec+msec != 0) {
-                        uint64_t seconds = (year*31557600ULL) + (month*2592000ULL) + (day*86400ULL) + (hour*3600ULL) + (min*60ULL) + sec;
-                        result = [NSDate dateWithTimeIntervalSince1970: seconds + msec / 1000.0];
+                    
+                    if (date_rec.dateyear+date_rec.datemonth+date_rec.datedmonth+date_rec.datehour+date_rec.dateminute+date_rec.datesecond != 0) {
+                        struct tm time;
+                        time_t seconds;
+                        
+                        time.tm_year = date_rec.dateyear - 1900;
+                        time.tm_mon = date_rec.datemonth;
+                        time.tm_mday = date_rec.datedmonth;
+                        time.tm_hour = date_rec.datehour;
+                        time.tm_min = date_rec.dateminute;
+                        time.tm_sec = date_rec.datesecond;
+                        time.tm_gmtoff = 0;
+                        time.tm_zone = nil;
+                        
+                        seconds = mktime(&time);
+                        result = [NSDate dateWithTimeIntervalSince1970: seconds + (date_rec.datemsecond / 1000)];
                     } else {
                         result = [NSNull null];
                     }
