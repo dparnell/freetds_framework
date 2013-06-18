@@ -58,107 +58,112 @@ static id string_or_null(const char* s) {
 }
 
 static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, char *dberrstr, char *oserrstr) {
-    FreeTDS* free_tds = (__bridge FreeTDS*)(void*)dbgetuserdata(dbproc);
-    
-//    NSLog(@"err_handler: %p %d %d %d %s %s", dbproc, severity, dberr, oserr, dberrstr, oserrstr);
-    
     int return_value = INT_CANCEL;
-    int cancel = 0;
-    switch(dberr) {
-        case 100: /* SYBEVERDOWN */
-            return INT_CANCEL;
-        case SYBESMSG:
-            return return_value;
-        case SYBEICONVI:
-            return INT_CANCEL;
-        case SYBEFCON:
-        case SYBESOCK:
-        case SYBECONN:
-            return_value = INT_CANCEL;
-            break;
-        case SYBESEOF: {
-            if (free_tds && free_tds->timing_out) {
-                return_value = INT_TIMEOUT;
-            } else {
+    
+    if(dbproc) {
+        FreeTDS* free_tds = (__bridge FreeTDS*)(void*)dbgetuserdata(dbproc);
+
+        NSLog(@"err_handler: %p %d %d %d %s %s", dbproc, severity, dberr, oserr, dberrstr, oserrstr);
+
+        int cancel = 0;
+        switch(dberr) {
+            case 100: /* SYBEVERDOWN */
                 return INT_CANCEL;
-            }
-            break;
-        }
-        case SYBETIME: {
-            if (free_tds) {
-                if (free_tds->timing_out) {
-                    return INT_CONTINUE;
+            case SYBESMSG:
+                return return_value;
+            case SYBEICONVI:
+                return INT_CANCEL;
+            case SYBEFCON:
+            case SYBESOCK:
+            case SYBECONN:
+                return_value = INT_CANCEL;
+                break;
+            case SYBESEOF: {
+                if (free_tds && free_tds->timing_out) {
+                    return_value = INT_TIMEOUT;
                 } else {
-                    free_tds->timing_out = YES;
+                    return INT_CANCEL;
                 }
+                break;
             }
-            cancel = 1;
-            break;
+            case SYBETIME: {
+                if (free_tds) {
+                    if (free_tds->timing_out) {
+                        return INT_CONTINUE;
+                    } else {
+                        free_tds->timing_out = YES;
+                    }
+                }
+                cancel = 1;
+                break;
+            }
+            case SYBEWRIT: {
+                if (free_tds && (free_tds->dbsqlok_sent || free_tds->dbcancel_sent))
+                    return INT_CANCEL;
+                cancel = 1;
+                break;
+            }
+            case SYBEREAD:
+                cancel = 1;
+                break;
         }
-        case SYBEWRIT: {
-            if (free_tds && (free_tds->dbsqlok_sent || free_tds->dbcancel_sent))
-                return INT_CANCEL;
-            cancel = 1;
-            break;
+
+        NSError* er = [NSError errorWithDomain: [NSString stringWithCString: dberrstr encoding: NSUTF8StringEncoding]
+                                          code: dberr 
+                                      userInfo: [NSDictionary dictionaryWithObjectsAndKeys: 
+                                                           string_or_null(oserrstr), FREETDS_OS_ERROR,
+                                                           [NSNumber numberWithInt: oserr], FREETDS_OS_CODE,
+                                                           string_or_null(dberrstr), FREETDS_DB_ERROR,
+                                                           [NSNumber numberWithInt: dberr], FREETDS_DB_CODE,
+                                                           [NSNumber numberWithInt: severity], FREETDS_SEVERITY,
+                                                           nil]];
+
+        if(cancel) {
+            dbcancel(dbproc);
         }
-        case SYBEREAD:
-            cancel = 1;
-            break;
+
+        if(free_tds) {
+            if(free_tds->last_error == nil) {
+                free_tds->last_error = er;
+            }
+        } else {
+            login_error = er;
+        }    
     }
-    
-    NSError* er = [NSError errorWithDomain: [NSString stringWithCString: dberrstr encoding: NSUTF8StringEncoding]
-                                      code: dberr 
-                                  userInfo: [NSDictionary dictionaryWithObjectsAndKeys: 
-                                                       string_or_null(oserrstr), FREETDS_OS_ERROR,
-                                                       [NSNumber numberWithInt: oserr], FREETDS_OS_CODE,
-                                                       string_or_null(dberrstr), FREETDS_DB_ERROR,
-                                                       [NSNumber numberWithInt: dberr], FREETDS_DB_CODE,
-                                                       [NSNumber numberWithInt: severity], FREETDS_SEVERITY,
-                                                       nil]];
-    
-    if(cancel) {
-        dbcancel(dbproc);
-    }
-    
-    if(free_tds) {
-        if(free_tds->last_error == nil) {
-            free_tds->last_error = er;
-        }
-    } else {
-        login_error = er;
-    }
-    
     return return_value;
 }
 
 static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severity, char *msgtext, char *srvname, char *procname, int line) {
-    FreeTDS* free_tds = (__bridge FreeTDS*)(void*)dbgetuserdata(dbproc);
-    
-    NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: 
-                          string_or_null(msgtext), FREETDS_MESSAGE,
-                          [NSNumber numberWithInt: msgno], FREETDS_MESSAGE_NUMBER,
-                          [NSNumber numberWithInt: msgstate], FREETDS_MESSAGE_STATE,
-                          string_or_null(srvname), FREETDS_SERVER,
-                          string_or_null(procname), FREETDS_PROC_NAME,
-                          [NSNumber numberWithInt: line], FREETDS_LINE,
-                          [NSNumber numberWithInt: severity], FREETDS_SEVERITY,
-                          nil];
-//    NSLog(@"info = %@", info);
-    
-    if(severity>10) {
-        NSError* er = [NSError errorWithDomain: [NSString stringWithCString: msgtext encoding: NSUTF8StringEncoding] 
-                                          code: msgno 
-                                      userInfo: info];
+    if(dbproc) {
+        FreeTDS* free_tds = (__bridge FreeTDS*)(void*)dbgetuserdata(dbproc);
         
-        if(free_tds) {
-            free_tds->last_error = er;
+        NSDictionary* info = [NSDictionary dictionaryWithObjectsAndKeys: 
+                              string_or_null(msgtext), FREETDS_MESSAGE,
+                              [NSNumber numberWithInt: msgno], FREETDS_MESSAGE_NUMBER,
+                              [NSNumber numberWithInt: msgstate], FREETDS_MESSAGE_STATE,
+                              string_or_null(srvname), FREETDS_SERVER,
+                              string_or_null(procname), FREETDS_PROC_NAME,
+                              [NSNumber numberWithInt: line], FREETDS_LINE,
+                              [NSNumber numberWithInt: severity], FREETDS_SEVERITY,
+                              nil];
+//        NSLog(@"info = %@", info);
+        
+        if(severity>10) {
+            NSError* er = [NSError errorWithDomain: [NSString stringWithCString: msgtext encoding: NSUTF8StringEncoding] 
+                                              code: msgno 
+                                          userInfo: info];
+            
+            if(free_tds) {
+                free_tds->last_error = er;
+            } else {
+                login_error = er;
+            }        
         } else {
-            login_error = er;
-        }        
-    } else {
-        if (free_tds && free_tds->delegate) {
-            return [free_tds->delegate handleMessage: info withSeverity: severity from: free_tds];
+            if (free_tds && free_tds->delegate) {
+                return [free_tds->delegate handleMessage: info withSeverity: severity from: free_tds];
+            }
         }
+        
     }
     return  0;
 }
@@ -173,9 +178,11 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 
 + (FreeTDS*) connectionWithDictionary:(NSDictionary*)dictionary andError:(NSError **)error {
     FreeTDS* result = [FreeTDS new];
-    [result loginWithDictionary: dictionary andError: error];
+    if([result loginWithDictionary: dictionary andError: error]) {
+        return result;
+    }
     
-    return result;
+    return nil;
 }
 
 - (void)dealloc {
@@ -245,6 +252,8 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
             dbuse(process, [database UTF8String]);
             return [self checkForError: error];
         }
+        
+        return YES;
     }
     
     return NO;
@@ -305,8 +314,11 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
 #pragma mark Private stuff
 
 - (BOOL) checkForError:(NSError**)error {
-    if (error) {
-        *error = last_error;
+    if(last_error) {
+        if (error) {
+            *error = last_error;
+        }
+        
         last_error = nil;
         return NO;
     }
