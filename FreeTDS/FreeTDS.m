@@ -63,7 +63,7 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
     if(dbproc) {
         FreeTDS* free_tds = (__bridge FreeTDS*)(void*)dbgetuserdata(dbproc);
 
-        NSLog(@"err_handler: %p %d %d %d %s %s", dbproc, severity, dberr, oserr, dberrstr, oserrstr);
+        // NSLog(@"err_handler: %p %d %d %d %s %s", dbproc, severity, dberr, oserr, dberrstr, oserrstr);
 
         int cancel = 0;
         switch(dberr) {
@@ -108,7 +108,7 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
                 break;
         }
 
-        NSError* er = [NSError errorWithDomain: [NSString stringWithCString: dberrstr encoding: NSUTF8StringEncoding]
+        NSError* er = [NSError errorWithDomain: @"FreeTDS"
                                           code: dberr 
                                       userInfo: [NSDictionary dictionaryWithObjectsAndKeys: 
                                                            string_or_null(oserrstr), FREETDS_OS_ERROR,
@@ -116,6 +116,7 @@ static int err_handler(DBPROCESS *dbproc, int severity, int dberr, int oserr, ch
                                                            string_or_null(dberrstr), FREETDS_DB_ERROR,
                                                            [NSNumber numberWithInt: dberr], FREETDS_DB_CODE,
                                                            [NSNumber numberWithInt: severity], FREETDS_SEVERITY,
+                                                           string_or_null(dberrstr), NSLocalizedDescriptionKey,
                                                            nil]];
 
         if(cancel) {
@@ -145,11 +146,12 @@ static int msg_handler(DBPROCESS *dbproc, DBINT msgno, int msgstate, int severit
                               string_or_null(procname), FREETDS_PROC_NAME,
                               [NSNumber numberWithInt: line], FREETDS_LINE,
                               [NSNumber numberWithInt: severity], FREETDS_SEVERITY,
+                              string_or_null(msgtext), NSLocalizedDescriptionKey,
                               nil];
 //        NSLog(@"info = %@", info);
         
         if(severity>10) {
-            NSError* er = [NSError errorWithDomain: [NSString stringWithCString: msgtext encoding: NSUTF8StringEncoding] 
+            NSError* er = [NSError errorWithDomain: @"FreeTDS"
                                               code: msgno 
                                           userInfo: info];
             
