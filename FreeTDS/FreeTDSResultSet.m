@@ -27,12 +27,12 @@
 #import <time.h>
 
 @interface FreeTDS (Private)
-
 - (BOOL) checkForError:(NSError**)error;
 
 @end
 
 @implementation FreeTDSResultSet
+
 
 - (id) initWithFreeTDS:(FreeTDS*)connection {
     self = [super init];
@@ -215,8 +215,9 @@
                         time.tm_hour = date_rec.datehour;
                         time.tm_min = date_rec.dateminute;
                         time.tm_sec = date_rec.datesecond;
+                        time.tm_isdst = NO;
                         time.tm_gmtoff = 0;
-                        time.tm_zone = nil;
+                        time.tm_zone = "UTC";
                         
                         seconds = mktime(&time);
                         result = [NSDate dateWithTimeIntervalSince1970: seconds + (date_rec.datemsecond / 1000)];
