@@ -219,7 +219,7 @@
                         time.tm_gmtoff = 0;
                         time.tm_zone = "UTC";
                         
-                        seconds = mktime(&time);
+                        seconds = timegm(&time);
                         result = [NSDate dateWithTimeIntervalSince1970: seconds + (date_rec.datemsecond / 1000)];
                     } else {
                         result = [NSNull null];
