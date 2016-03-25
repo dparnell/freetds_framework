@@ -25,6 +25,10 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+#ifdef __clang__
+#include <stdint.h>
+#endif
+
 #if TIME_WITH_SYS_TIME
 # if HAVE_SYS_TIME_H
 #  include <sys/time.h>
@@ -89,8 +93,14 @@ static int store_dd_mon_yyy_date(char *datestr, struct tds_time *t);
 #define TDS_INT_MAX 2147483647l
 #define IS_INT(x) (TDS_INT_MIN <= (x) && (x) <= TDS_INT_MAX)
 
+#ifdef INT32_MAX
+#define TDS_INT8_MAX INT32_MAX
+#define TDS_INT8_MIN INT32_MIN
+#else
 #define TDS_INT8_MAX ((((TDS_INT8) 0x7fffffffl) << 32) + 0xfffffffflu)
 #define TDS_INT8_MIN  (((TDS_INT8) (-0x7fffffffl-1)) << 32)
+#endif
+
 #define IS_INT8(x) (TDS_INT8_MIN <= (x) && (x) <= TDS_INT8_MAX)
 
 /**
