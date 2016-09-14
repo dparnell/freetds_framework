@@ -822,7 +822,7 @@ ct_command(CS_COMMAND * cmd, CS_INT type, const CS_VOID * buffer, CS_INT buflen,
 		default:
 			return CS_FAIL;
 		}
-		ct_set_command_state(cmd, _CS_COMMAND_READY);
+		// ct_set_command_state(cmd, _CS_COMMAND_READY);
 		break;
 
 	default:
@@ -3748,7 +3748,7 @@ ct_cursor(CS_COMMAND * cmd, CS_INT type, CS_CHAR * name, CS_INT namelen, CS_CHAR
 			cursor->status.open  = _CS_CURS_TYPE_REQUESTED;
 
 			return CS_SUCCEED;
-			ct_set_command_state(cmd, _CS_COMMAND_READY);
+			// ct_set_command_state(cmd, _CS_COMMAND_READY);
 		}
 		else {
 			cursor->status.open = _CS_CURS_TYPE_UNACTIONED;

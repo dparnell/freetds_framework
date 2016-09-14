@@ -870,7 +870,7 @@ tds7_get_instance_ports(FILE *output, const char *ip_addr)
 			msg[msg_len] = 0;
 			tdsdump_dump_buf(TDS_DBG_INFO1, "instance info", msg, msg_len);
 			
-			if (0) {	/* To debug, print the whole string. */
+			if (/* DISABLES CODE */ (0)) {	/* To debug, print the whole string. */
 				char *p;
 
 				for (*sep = '\n', p=msg+3; p < msg + msg_len; p++) {
