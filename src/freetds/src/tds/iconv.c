@@ -682,8 +682,10 @@ tds_iconv(TDSSOCKET * tds, const TDSICONV * conv, TDS_ICONV_DIRECTION io,
 				if (*pb == '?')
 					goto end_loop;
 				*pb = (char) 0x80;
-				while(l && (*pb & 0xC0) == 0x80)
-					++pb, --l;
+                while(l && (*pb & 0xC0) == 0x80) {
+                    ++pb;
+                    --l;
+                }
 				--pb;
 				++l;
 				*pb = '?';

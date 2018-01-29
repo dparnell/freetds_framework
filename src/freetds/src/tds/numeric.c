@@ -318,8 +318,10 @@ tds_numeric_to_string(const TDS_NUMERIC * numeric, char *s)
 	/* skip leading zeroes */
 	n = 1000;
 	remainder = *p;
-	while (remainder < n)
-		n /= 10, --i;
+    while (remainder < n) {
+        n /= 10;
+        --i;
+    }
 	if (i <= numeric->scale) {
 		*s++ = '0';
 		*s++ = '.';
