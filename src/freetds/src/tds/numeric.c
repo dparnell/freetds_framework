@@ -326,8 +326,10 @@ tds_numeric_to_string(const TDS_NUMERIC * numeric, char *s)
 		*s++ = '0';
 		*s++ = '.';
 		m = i;
-		while (m < numeric->scale)
-			*s++ = '0', ++m;
+        while (m < numeric->scale) {
+            *s++ = '0';
+            ++m;
+        }
 	}
 	for (;;) {
 		*s++ = (remainder / n) + '0';
